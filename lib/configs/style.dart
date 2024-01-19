@@ -13,5 +13,8 @@ class AppStyle{
   static const textAuthStyle = TextStyle(
       fontSize: 12, color: Color(0xff465058), fontWeight: FontWeight.w500);
 
+  static const verifyCodeStyle = TextStyle(
+      fontSize: 12, fontWeight: FontWeight.w600);
+
 
 }

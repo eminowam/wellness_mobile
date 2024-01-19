@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wellness_mobile/pages/auth/sign_in.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final SharedPreferences preferences;
+
+  const MyApp({super.key, required this.preferences});
 
   @override
   Widget build(BuildContext context) {

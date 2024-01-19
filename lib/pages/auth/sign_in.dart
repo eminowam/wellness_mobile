@@ -1,7 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:wellness_mobile/configs/style.dart';
+import 'package:wellness_mobile/pages/auth/forgot_password.dart';
 import 'package:wellness_mobile/pages/auth/sign_up.dart';
+import 'package:wellness_mobile/pages/widgets/bottom_nav.dart';
 import 'package:wellness_mobile/pages/widgets/utils/custom_button.dart';
 import 'package:wellness_mobile/pages/widgets/utils/custom_textfield.dart';
 import 'package:wellness_mobile/pages/widgets/utils/socials_button.dart';
@@ -40,7 +42,7 @@ class _SignInState extends State<SignIn> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Email'),
+                    const Text('Почта '),
                     CustomTextField(
                         title: 'Введите ваш Email',
                         onChanged: () {},
@@ -76,14 +78,17 @@ class _SignInState extends State<SignIn> {
                     style: TextButton.styleFrom(
                         foregroundColor: const Color(0xff197FBD),
                         textStyle: AppStyle.forgotPassword),
-                    onPressed: () {},
+                    onPressed: () =>
+                    Navigator.push(context, MaterialPageRoute(builder: (_)=>ForgotPassword())),
                     child: const Text("Забыли пароль?"),
                   ),
                 ),
-            CustomButton(
-              onPressed: () {},
-              title: "Войти",
-            ),
+                CustomButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (_)=>BottomNav()));
+                  },
+                  title: "Войти",
+                ),
                 const SizedBox(
                   height: 26,
                 ),
@@ -91,25 +96,25 @@ class _SignInState extends State<SignIn> {
                   children: [
                     Expanded(
                         child: Divider(
-                          endIndent: 10,
-                          color: Color(0xff78828A),
-                        )),
+                      endIndent: 10,
+                      color: Color(0xff78828A),
+                    )),
                     Text(
                       "или",
                       style: TextStyle(color: Color(0xff78828A)),
                     ),
                     Expanded(
                         child: Divider(
-                          indent: 10,
-                          color: Color(0xff78828A),
-                        )),
+                      indent: 10,
+                      color: Color(0xff78828A),
+                    )),
                   ],
                 ),
                 const SizedBox(
                   height: 17,
                 ),
                 const SocialsButton(
-                  icon: '',
+                  icon: 'assets/icons/google.png',
                   title: 'Войти через Google',
                 ),
                 const SizedBox(
@@ -128,8 +133,10 @@ class _SignInState extends State<SignIn> {
                             text: 'Зарегестрироваться',
                             style: AppStyle.forgotPassword,
                             recognizer: TapGestureRecognizer()
-                              ..onTap = () => Navigator.push(context, MaterialPageRoute(
-                                  builder: (context) => SignUp())),
+                              ..onTap = () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const SignUp())),
                           ),
                         ],
                       ),
