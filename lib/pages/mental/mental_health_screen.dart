@@ -11,11 +11,15 @@ class MentalHealthPage extends StatefulWidget {
 class _MentalHealthPageState extends State<MentalHealthPage> {
   @override
   Widget build(BuildContext context) {
-    return AppScaffold(
-        child: SingleChildScrollView(
+    return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+        padding: EdgeInsets.symmetric(horizontal: 10,vertical: 15),
+        child: Column(
+          children: [
+
+          ],
+        ),
       ),
-    ));
+    );
   }
 }

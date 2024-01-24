@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wellness_mobile/configs/color.dart';
 import 'package:wellness_mobile/pages/main_screen/main_screen.dart';
 import 'package:wellness_mobile/pages/mental/mental_health_screen.dart';
 import 'package:wellness_mobile/pages/profile/profile_screen.dart';
@@ -23,7 +24,8 @@ class _BottomNavState extends State<BottomNav> {
     return Scaffold(
       body: screens[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.blue,
+        elevation: 0,
+          backgroundColor: Colors.white,
           type: BottomNavigationBarType.fixed,
           currentIndex: currentIndex,
           onTap: (index) {
@@ -35,36 +37,36 @@ class _BottomNavState extends State<BottomNav> {
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.home,
-                  color: Colors.white,
+                  color: navBackgroundColor,
                   size: 30,
                 ),
                 activeIcon: Icon(
                   Icons.home,
-                  color: Colors.black,
+                  color: customButtonColor,
                   size: 30,
                 ),
                 label: ""),
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.health_and_safety_outlined,
-                  color: Colors.white,
+                  color:navBackgroundColor ,
                   size: 30,
                 ),
                 activeIcon: Icon(
                   Icons.health_and_safety_outlined,
-                  color: Colors.black,
+                  color: customButtonColor,
                   size: 30,
                 ),
                 label: ""),
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.person,
-                  color: Colors.white,
+                  color: navBackgroundColor,
                   size: 30,
                 ),
                 activeIcon: Icon(
                   Icons.person,
-                  color: Colors.black,
+                  color: customButtonColor,
                   size: 30,
                 ),
                 label: "")

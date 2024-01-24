@@ -9,8 +9,9 @@ class AppScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: Text('Wellness App'),
+        backgroundColor: Colors.white,
+        elevation: 0,
+        title: Text('Wellness App',style: TextStyle(color: Colors.black),),
       ),
       body: child,
     );
