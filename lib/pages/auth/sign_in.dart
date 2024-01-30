@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:wellness_mobile/configs/color.dart';
 import 'package:wellness_mobile/configs/style.dart';
 import 'package:wellness_mobile/pages/auth/forgot_password.dart';
 import 'package:wellness_mobile/pages/auth/sign_up.dart';
@@ -76,7 +77,7 @@ class _SignInState extends State<SignIn> {
                   alignment: Alignment.topRight,
                   child: TextButton(
                     style: TextButton.styleFrom(
-                        foregroundColor: const Color(0xff197FBD),
+                        foregroundColor: customButtonColor,
                         textStyle: AppStyle.forgotPassword),
                     onPressed: () =>
                     Navigator.push(context, MaterialPageRoute(builder: (_)=>ForgotPassword())),

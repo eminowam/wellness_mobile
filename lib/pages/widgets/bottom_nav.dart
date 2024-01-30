@@ -25,7 +25,7 @@ class _BottomNavState extends State<BottomNav> {
       body: screens[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         elevation: 0,
-          backgroundColor: Colors.white,
+          backgroundColor: customButtonColor,
           type: BottomNavigationBarType.fixed,
           currentIndex: currentIndex,
           onTap: (index) {
@@ -42,7 +42,7 @@ class _BottomNavState extends State<BottomNav> {
                 ),
                 activeIcon: Icon(
                   Icons.home,
-                  color: customButtonColor,
+                  color: Colors.white,
                   size: 30,
                 ),
                 label: ""),
@@ -54,7 +54,7 @@ class _BottomNavState extends State<BottomNav> {
                 ),
                 activeIcon: Icon(
                   Icons.health_and_safety_outlined,
-                  color: customButtonColor,
+                  color: Colors.white,
                   size: 30,
                 ),
                 label: ""),
@@ -66,7 +66,7 @@ class _BottomNavState extends State<BottomNav> {
                 ),
                 activeIcon: Icon(
                   Icons.person,
-                  color: customButtonColor,
+                  color: Colors.white,
                   size: 30,
                 ),
                 label: "")

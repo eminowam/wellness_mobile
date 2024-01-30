@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wellness_mobile/configs/color.dart';
 import 'package:wellness_mobile/configs/style.dart';
 import 'package:wellness_mobile/pages/auth/sign_in.dart';
 import 'package:wellness_mobile/pages/widgets/utils/custom_button.dart';
@@ -134,7 +135,7 @@ class _SignUpState extends State<SignUp> {
                         child: const Text(
                           "Войти",
                           style: TextStyle(
-                            color: Color(0xff197FBD),
+                            color:customButtonColor,
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
                           ),

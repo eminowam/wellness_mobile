@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:wellness_mobile/configs/color.dart';
 
 class AppStyle{
   static const signInTextStyle=TextStyle(color: Color(0xff1D1617),fontSize: 18,fontWeight: FontWeight.w400);
@@ -8,7 +9,7 @@ class AppStyle{
       fontSize: 14, color: Color(0xff78828A), fontWeight: FontWeight.w400);
 
   static const forgotPassword = TextStyle(
-      color: Color(0xff197FBD), fontSize: 12, fontWeight: FontWeight.w600);
+      color: customButtonColor, fontSize: 12, fontWeight: FontWeight.w600);
 
   static const textAuthStyle = TextStyle(
       fontSize: 12, color: Color(0xff465058), fontWeight: FontWeight.w500);
