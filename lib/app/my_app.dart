@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wellness_mobile/pages/auth/sign_in.dart';
 
+import '../configs/color.dart';
+
 class MyApp extends StatelessWidget {
   final SharedPreferences preferences;
 
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)
-            .copyWith(background: Colors.white),
+            .copyWith(background: mainBackColor),
       ),
       home: SignIn(),
     );

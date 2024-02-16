@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wellness_mobile/pages/widgets/app_scaffold/app_scaffold.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -10,20 +11,13 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        leading: const Icon(Icons.arrow_back_ios_new,color: Colors.white,),
-        title: const Text('Profile',style: TextStyle(fontSize: 19),),
-        centerTitle: true,
-      ),
-      body: SingleChildScrollView(
+    return AppScaffold(
+      title: 'Профиль',
+      child: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 15),
           child: Column(
             children: [
-              SizedBox(height: 15,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

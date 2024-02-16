@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class AppScaffold extends StatelessWidget {
-  const AppScaffold({super.key, required this.child});
+  final String title;
+
+  const AppScaffold({super.key, required this.child, required this.title});
 
   final Widget child;
 
@@ -9,9 +11,14 @@ class AppScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xffFAECE5),
         elevation: 0,
-        title: Text('Wellness App',style: TextStyle(color: Colors.black),),
+        centerTitle: true,
+        title: Text(
+          title,
+          style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+        ),
+        leading: Container(),
       ),
       body: child,
     );
