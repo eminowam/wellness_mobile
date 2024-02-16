@@ -45,7 +45,7 @@ class CustomTextField extends StatelessWidget {
         decoration: InputDecoration(
           prefixIcon: path,
           filled: true,
-          fillColor: const Color(0xffEAE8EB),
+          fillColor:  Colors.white,
           contentPadding:
           const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
           hintText: title,
