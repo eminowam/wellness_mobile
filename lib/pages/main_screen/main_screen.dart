@@ -12,18 +12,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        leading: const Icon(Icons.arrow_back_ios_new,color: Colors.white,),
-        title: const Text('Wellness App',style: TextStyle(fontSize: 19),),
-        centerTitle: true,
-      ),
-        body: SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+        body: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 25),
+      child: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            SizedBox(height: 30),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -64,12 +59,102 @@ class _HomePageState extends State<HomePage> {
                     icon: const Icon(Icons.notifications_none_outlined))
               ],
             ),
-            SizedBox(height: 20,),
-            CustomSearchField()
-
+            SizedBox(
+              height: 20,
+            ),
+            CustomSearchField(),
+            SizedBox(
+              height: 15,
+            ),
+            const SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  CustomMainContainer(title: 'Focus'),
+                  SizedBox(
+                    width: 7,
+                  ),
+                  CustomMainContainer(title: 'Focus'),
+                  SizedBox(
+                    width: 7,
+                  ),
+                  CustomMainContainer(title: 'Focus'),
+                  SizedBox(
+                    width: 7,
+                  ),
+                  CustomMainContainer(title: 'Focus'),
+                  SizedBox(
+                    width: 7,
+                  ),
+                  CustomMainContainer(title: 'Focus'),
+                ],
+              ),
+            ),
+            SizedBox(height: 35),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: Color(0xffADBC9F),
+              ),
+              child: Row(
+                children: [
+                  Image.asset('assets/icons/google.png'),
+                  SizedBox(width: 9),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Affirmation',
+                        style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black),
+                      ),
+                      Text(
+                        'jdcblsjdvflqoskfj;oqjnfojhsd;ojcbf;qwo',
+                        style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black),
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              'Start your Day',
+              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
+              
+            )
           ],
         ),
       ),
     ));
+  }
+}
+
+class CustomMainContainer extends StatelessWidget {
+  final String title;
+
+  const CustomMainContainer({super.key, required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 70,
+      width: 70,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16), color: Color(0xffADBC9F)),
+      child: Center(
+          child: Text(
+        title,
+      )),
+    );
   }
 }
