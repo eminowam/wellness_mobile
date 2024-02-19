@@ -60,101 +60,16 @@ class _HomePageState extends State<HomePage> {
                         icon: const Icon(Icons.notifications_none_outlined))
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 CustomSearchField(),
-                SizedBox(
+               const  SizedBox(
                   height: 15,
                 ),
-                const SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      CustomMainContainer(title: 'Focus'),
-                      SizedBox(
-                        width: 7,
-                      ),
-                      CustomMainContainer(title: 'Focus'),
-                      SizedBox(
-                        width: 7,
-                      ),
-                      CustomMainContainer(title: 'Focus'),
-                      SizedBox(
-                        width: 7,
-                      ),
-                      CustomMainContainer(title: 'Focus'),
-                      SizedBox(
-                        width: 7,
-                      ),
-                      CustomMainContainer(title: 'Focus'),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 35),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    color: Color(0xffADBC9F),
-                  ),
-                  child: Row(
-                    children: [
-                      Image.asset('assets/icons/google.png'),
-                      SizedBox(width: 9),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Affirmation',
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.black),
-                          ),
-                          Text(
-                            'jdcblsjdvflqoskfj;oqjnfojhsd;ojcbf;qwo',
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.black),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Text(
-                  'Start your Day',
-                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
-                )
               ],
             ),
           ),
         ));
-  }
-}
-
-class CustomMainContainer extends StatelessWidget {
-  final String title;
-
-  const CustomMainContainer({super.key, required this.title});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 70,
-      width: 70,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16), color: Color(0xffADBC9F)),
-      child: Center(
-          child: Text(
-        title,
-      )),
-    );
   }
 }
