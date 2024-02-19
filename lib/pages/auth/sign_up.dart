@@ -15,6 +15,8 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   bool passanable = true;
   bool passanable2 = true;
+  int _currentIndex = 1;
+
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,12 @@ class _SignUpState extends State<SignUp> {
         backgroundColor: Colors.transparent,
         leading: IconButton(
           onPressed: () {
+            if (_currentIndex == 1) {
               Navigator.pop(context);
+            }
+            setState(() {
+              _currentIndex--;
+            });
             },
           icon: const Icon(Icons.arrow_back),
         ),

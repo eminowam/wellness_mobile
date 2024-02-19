@@ -1,33 +1,40 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:wellness_mobile/pages/mental/saved_screen.dart';
-import 'package:wellness_mobile/pages/widgets/app_scaffold/app_scaffold.dart';
+import 'package:wellness_mobile/configs/color.dart';
 import 'package:wellness_mobile/pages/widgets/card/meditaton_card.dart';
 
-class MentalHealthPage extends StatefulWidget {
-  const MentalHealthPage({super.key});
+class SavedScreen extends StatelessWidget {
+  const SavedScreen({super.key});
 
-  @override
-  State<MentalHealthPage> createState() => _MentalHealthPageState();
-}
-
-class _MentalHealthPageState extends State<MentalHealthPage> {
   @override
   Widget build(BuildContext context) {
-    return AppScaffold(
-      title: 'Медитация',
-      icon: Icons.bookmark_border,
-      onPressed: () {
-        Navigator.push(
-            context, CupertinoPageRoute(builder: (_) => SavedScreen()));},
-      child: SingleChildScrollView(
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: mainBackColor,
+        elevation: 0,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.close),
+        ),
+      ),
+      body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Text(
+                'Закладки',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 20),
+              ),
+              SizedBox(height: 8,),
               ListView.builder(
                   shrinkWrap: true,
-                  itemCount: 10,
+                  itemCount: 3,
                   physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (BuildContext context, index) {
                     return const MeditationCard(

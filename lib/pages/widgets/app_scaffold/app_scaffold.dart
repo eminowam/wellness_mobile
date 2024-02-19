@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 class AppScaffold extends StatelessWidget {
   final String title;
   final IconData? icon;
+  final VoidCallback? onPressed;
 
   const AppScaffold(
-      {super.key, required this.child, required this.title, this.icon});
+      {super.key, required this.child, required this.title, this.icon, this.onPressed});
 
   final Widget child;
 
@@ -23,7 +24,8 @@ class AppScaffold extends StatelessWidget {
         leading: Container(),
         actions: [
           IconButton(
-              onPressed: () {}, icon: Icon(icon, color: const Color(0xff5F5F5F)))
+              onPressed: onPressed,
+              icon: Icon(icon, color: const Color(0xff5F5F5F)))
         ],
       ),
       body: child,
