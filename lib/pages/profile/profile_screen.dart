@@ -8,44 +8,71 @@ class ProfilePage extends StatefulWidget {
   State<ProfilePage> createState() => _ProfilePageState();
 }
 
+List<String> items = [
+  'Данные',
+  'Настройки',
+  'Сохраненные',
+  'Помощь',
+];
+
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
       title: 'Профиль',
+      icon: Icons.edit_square,
       child: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                 const  Row(
-                    children: [
-                      CircleAvatar(
-                        backgroundColor: Colors.grey,
-                        radius: 30,
-                        backgroundImage: NetworkImage(
-                            'https://t3.ftcdn.net/jpg/04/23/59/74/360_F_423597477_AKCjGMtevfCi9XJG0M8jter97kG466y7.jpg'),
-                      ),
-                      SizedBox(width: 10),
-                      Text('Masi Ramezanzade',style: TextStyle(fontSize: 14,fontWeight: FontWeight.w500,color: Colors.black),),
-                    ],
-                  ),
-                  IconButton(onPressed: (){},
-                      icon: const Icon(Icons.edit_square,color: Color(0xff5F5F5F)))
-                ],
+              const SizedBox(height: 15),
+              const CircleAvatar(
+                radius: 60,
+                backgroundImage: NetworkImage(
+                    "https://thumbs.dreamstime.com/b/asian-beauty-animation-portrait-beautiful-girl-ancient-national-turban-married-woman-s-headdress-central-asia-vector-167032286.jpg"),
               ),
-              SizedBox(height: 20,),
-              Row(
-                children: [
-                  CustomProfileButton(title: '180cm', subTitle: "Height")
-                ],
-              )
-
-
-
+              const SizedBox(
+                height: 20,
+              ),
+              const Text(
+                "Aimeerim Eminova",
+                style: TextStyle(
+                    color: Color(0xff333A53),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              ListView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: 4,
+                itemBuilder: (BuildContext ctx, index) {
+                  return InkWell(
+                    onTap: () {},
+                    child: Container(
+                      padding: EdgeInsets.symmetric(vertical: 6),
+                      decoration: BoxDecoration(
+                        border: Border(
+                          bottom: BorderSide(
+                            color: Colors.grey.shade400, // Цвет границы
+                            width: 1.0, // Ширина границы
+                          ),
+                        ),
+                      ),
+                      child: ListTile(
+                        title: Text(items[index]),
+                        trailing: Icon(
+                          Icons.chevron_right,
+                          color: Colors.grey.shade400,
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
             ],
           ),
         ),
@@ -53,27 +80,3 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 }
-
-class CustomProfileButton extends StatelessWidget {
-  final String title;
-  final String subTitle;
-  const CustomProfileButton({super.key, required this.title, required this.subTitle});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        color: Colors.transparent,
-      ),
-      child: Column(
-        children: [
-          Text(title,style: TextStyle(fontWeight: FontWeight.w400,fontSize: 14),),
-          Text(subTitle,style: TextStyle(fontWeight: FontWeight.w400,fontSize: 12),)
-
-        ],
-      ),
-    );
-  }
-}
-
