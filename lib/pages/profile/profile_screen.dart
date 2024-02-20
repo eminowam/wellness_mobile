@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:wellness_mobile/pages/profile/edit_profile_screen.dart';
 import 'package:wellness_mobile/pages/widgets/app_scaffold/app_scaffold.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -21,6 +23,10 @@ class _ProfilePageState extends State<ProfilePage> {
     return AppScaffold(
       title: 'Профиль',
       icon: Icons.edit_square,
+      onPressed: () {
+        Navigator.push(context,
+            CupertinoPageRoute(builder: (_) => const EditProfileScreen()));
+      },
       child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),
