@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:wellness_mobile/pages/main_screen/notification_screen.dart';
 import 'package:wellness_mobile/pages/widgets/app_scaffold/app_scaffold.dart';
 import 'package:wellness_mobile/pages/widgets/utils/custom_search.dart';
 
@@ -23,7 +25,7 @@ class _HomePageState extends State<HomePage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Row(
+                   const  Row(
                       children: [
                         CircleAvatar(
                           backgroundColor: Colors.grey,
@@ -56,7 +58,12 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                     IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              CupertinoPageRoute(
+                                  builder: (_) => const NotificationScreen()));
+                        },
                         icon: const Icon(Icons.notifications_none_outlined))
                   ],
                 ),
@@ -64,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                   height: 20,
                 ),
                 CustomSearchField(),
-               const  SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
               ],
