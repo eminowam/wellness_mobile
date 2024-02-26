@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:wellness_mobile/pages/mental/yoga_details.dart';
 
 import '../../../configs/color.dart';
 
@@ -29,7 +31,9 @@ class _MeditationCardState extends State<MeditationCard> {
         borderRadius: BorderRadius.circular(10),
         elevation: 15,
         child: InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(context, CupertinoPageRoute(builder: (_)=>const YogaDetails()));
+          },
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
             decoration: BoxDecoration(
