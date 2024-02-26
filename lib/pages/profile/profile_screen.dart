@@ -22,7 +22,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return AppScaffold(
       title: 'Профиль',
-      icon: Icons.edit_square,
+      icon1: Icons.edit_square,
       onPressed: () {
         Navigator.push(context,
             CupertinoPageRoute(builder: (_) => const EditProfileScreen()));

@@ -2,11 +2,19 @@ import 'package:flutter/material.dart';
 
 class AppScaffold extends StatelessWidget {
   final String title;
-  final IconData? icon;
+  final IconData? icon1;
+  final IconData? icon2;
   final VoidCallback? onPressed;
+  final VoidCallback? onPressed2;
 
   const AppScaffold(
-      {super.key, required this.child, required this.title, this.icon, this.onPressed});
+      {super.key,
+      required this.child,
+      required this.title,
+      this.icon1,
+      this.onPressed,
+      this.icon2,
+      this.onPressed2});
 
   final Widget child;
 
@@ -21,11 +29,13 @@ class AppScaffold extends StatelessWidget {
           title,
           style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
         ),
-        leading: Container(),
+        leading: IconButton(
+            onPressed: onPressed2,
+            icon: Icon(icon2, color: const Color(0xff5F5F5F))),
         actions: [
           IconButton(
               onPressed: onPressed,
-              icon: Icon(icon, color: const Color(0xff5F5F5F)))
+              icon: Icon(icon1, color: const Color(0xff5F5F5F)))
         ],
       ),
       body: child,

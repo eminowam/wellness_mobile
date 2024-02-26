@@ -16,7 +16,7 @@ class _MentalHealthPageState extends State<MentalHealthPage> {
   Widget build(BuildContext context) {
     return AppScaffold(
       title: 'Медитация',
-      icon: Icons.bookmark_border,
+      icon1: Icons.bookmark_border,
       onPressed: () {
         Navigator.push(
             context, CupertinoPageRoute(builder: (_) => SavedScreen()));},
