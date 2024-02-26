@@ -43,7 +43,7 @@ class _SignInState extends State<SignIn> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Почта '),
+                    const Text('Почта'),
                     CustomTextField(
                         title: 'Введите ваш Email',
                         onChanged: () {},
