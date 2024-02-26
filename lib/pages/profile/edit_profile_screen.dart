@@ -23,7 +23,7 @@ class EditProfileScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Center(
+              const Center(
                 child: CircleAvatar(
                   backgroundColor: Colors.grey,
                   radius: 55,
@@ -34,43 +34,51 @@ class EditProfileScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 15,),
-              Text("Имя"),
+              const SizedBox(
+                height: 15,
+              ),
+              const Text("Имя"),
               CustomTextField(
                   title: 'Имя',
-                  onChanged: (){},
-                  obscureText: true, 
+                  onChanged: () {},
+                  obscureText: true,
                   maxLines: 1),
-              SizedBox(height: 15,),
-              Text("Новая почта"),
+              const SizedBox(
+                height: 15,
+              ),
+              const Text("Новая почта"),
               CustomTextField(
                   title: 'Новая почта',
-                  onChanged: (){},
+                  onChanged: () {},
                   obscureText: true,
                   maxLines: 1),
-              SizedBox(height: 15,),
-              Text("Вес"),
+              const SizedBox(
+                height: 15,
+              ),
+              const Text("Вес"),
               CustomTextField(
                   title: 'Вес',
-                  onChanged: (){},
+                  onChanged: () {},
                   obscureText: true,
                   maxLines: 1),
-              SizedBox(height: 15,),
-              Text("Рост"),
+              const SizedBox(
+                height: 15,
+              ),
+              const Text("Рост"),
               CustomTextField(
                   title: 'Рост',
-                  onChanged: (){},
+                  onChanged: () {},
                   obscureText: true,
                   maxLines: 1),
-              SizedBox(height: 15,),
-              Text("Пароль"),
+              const SizedBox(
+                height: 15,
+              ),
+              const Text("Пароль"),
               CustomTextField(
                   title: 'Пароль',
-                  onChanged: (){},
+                  onChanged: () {},
                   obscureText: true,
                   maxLines: 1),
-
-
             ],
           ),
         ),
