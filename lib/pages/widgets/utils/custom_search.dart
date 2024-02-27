@@ -13,7 +13,7 @@ class CustomSearchField extends StatelessWidget {
         border: OutlineInputBorder(
           borderSide:
           const BorderSide(width: 0.7, ),
-          borderRadius: BorderRadius.circular(17),
+          borderRadius: BorderRadius.circular(11),
         ),
         hintText: "Найти ",
         hintStyle:

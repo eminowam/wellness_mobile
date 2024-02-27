@@ -27,7 +27,7 @@ class _MeditationCardState extends State<MeditationCard> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: Material(
-        color: Colors.white,
+        color: Colors.white70,
         borderRadius: BorderRadius.circular(10),
         elevation: 15,
         child: InkWell(

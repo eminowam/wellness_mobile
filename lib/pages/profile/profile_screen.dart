@@ -63,8 +63,8 @@ class _ProfilePageState extends State<ProfilePage> {
                       decoration: BoxDecoration(
                         border: Border(
                           bottom: BorderSide(
-                            color: Colors.grey.shade400, // Цвет границы
-                            width: 1.0, // Ширина границы
+                            color: Colors.grey.shade400,
+                            width: 1.0,
                           ),
                         ),
                       ),
