@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wellness_mobile/pages/main_screen/notification_screen.dart';
 import 'package:wellness_mobile/pages/main_screen/recom_screen.dart';
+import 'package:wellness_mobile/pages/main_screen/steps.dart';
 import 'package:wellness_mobile/pages/widgets/app_scaffold/app_scaffold.dart';
 import 'package:wellness_mobile/pages/widgets/utils/custom_container.dart';
 import 'package:wellness_mobile/pages/widgets/utils/custom_search.dart';
@@ -88,8 +89,11 @@ class _HomePageState extends State<HomePage> {
                   height: 15,
                 ),
                 CustomContainer(
-                  onTap: () {},
-                  child:  Padding(
+                  onTap: () {
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (_) => StepsScreen()));
+                  },
+                  child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                     child: Column(
                       children: [
@@ -98,11 +102,18 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Row(
                               children: [
-                                Icon(Icons.backup_outlined,color: Colors.brown.shade400,),
+                                Icon(
+                                  Icons.backup_outlined,
+                                  color: Colors.brown.shade400,
+                                ),
                                 SizedBox(
                                   width: 5,
                                 ),
-                                Text('Шаги',style: TextStyle(color: Colors.brown.shade400),),
+                                Text(
+                                  'Шаги',
+                                  style:
+                                      TextStyle(color: Colors.brown.shade400),
+                                ),
                               ],
                             ),
                             const Icon(
@@ -111,10 +122,10 @@ class _HomePageState extends State<HomePage> {
                             )
                           ],
                         ),
-                       const SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
-                       const  Row(
+                        const Row(
                           children: [
                             Text(
                               '2120',
