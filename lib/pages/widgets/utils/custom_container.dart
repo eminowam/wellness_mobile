@@ -7,16 +7,13 @@ class CustomContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        margin: EdgeInsets.symmetric(vertical: 5),
-        decoration: BoxDecoration(
-            color: Colors.white70,
-            borderRadius: BorderRadius.circular(11),
-            border: Border.all(width: 0.5,color: Colors.white70)
-        ),
-        child:child
+    return Material(
+      color: Colors.white70,
+      borderRadius: BorderRadius.circular(10),
+      elevation: 5,
+      child: InkWell(
+        onTap: onTap,
+        child: child,
       ),
     );
   }
