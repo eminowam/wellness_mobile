@@ -24,14 +24,14 @@ class SavedScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+             const Text(
                 'Закладки',
                 style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w500,
                     fontSize: 20),
               ),
-              SizedBox(height: 8,),
+              const SizedBox(height: 8,),
               ListView.builder(
                   shrinkWrap: true,
                   itemCount: 3,

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:wellness_mobile/pages/profile/details_screen.dart';
 import 'package:wellness_mobile/pages/profile/edit_profile_screen.dart';
 import 'package:wellness_mobile/pages/widgets/app_scaffold/app_scaffold.dart';
 
@@ -15,6 +16,8 @@ List<String> items = [
   'Настройки',
   'Сохраненные',
   'Помощь',
+  'Уведомления',
+  'Выйти',
 ];
 
 class _ProfilePageState extends State<ProfilePage> {
@@ -54,12 +57,14 @@ class _ProfilePageState extends State<ProfilePage> {
               ListView.builder(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                itemCount: 4,
+                itemCount: items.length,
                 itemBuilder: (BuildContext ctx, index) {
                   return InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(context, CupertinoPageRoute(builder: (_)=>const DetailsProfileScreen()));
+                    },
                     child: Container(
-                      padding: EdgeInsets.symmetric(vertical: 6),
+                      padding: const EdgeInsets.symmetric(vertical: 6),
                       decoration: BoxDecoration(
                         border: Border(
                           bottom: BorderSide(
