@@ -9,7 +9,7 @@ class AppStyle{
       fontSize: 14, color: Color(0xff78828A), fontWeight: FontWeight.w400);
 
   static const forgotPassword = TextStyle(
-      color: customButtonColor, fontSize: 12, fontWeight: FontWeight.w600);
+      color: bottomColor, fontSize: 12, fontWeight: FontWeight.w600);
 
   static const textAuthStyle = TextStyle(
       fontSize: 12, color: Color(0xff465058), fontWeight: FontWeight.w500);

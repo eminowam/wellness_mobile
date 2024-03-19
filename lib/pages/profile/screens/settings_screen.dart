@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:wellness_mobile/pages/profile/screens/regret_password.dart';
 import 'package:wellness_mobile/pages/widgets/app_scaffold/app_scaffold.dart';
 
 import '../../../configs/color.dart';
@@ -28,7 +29,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
         child: Column(
           children: [
           InkWell(
-          onTap:(){},
+          onTap:(){
+            Navigator.push(context,
+                CupertinoPageRoute(builder: (_)=>const  RegretPassword()));
+          },
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
           focusColor: Colors.white70,
