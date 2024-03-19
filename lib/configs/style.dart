@@ -17,5 +17,8 @@ class AppStyle{
   static const verifyCodeStyle = TextStyle(
       fontSize: 12, fontWeight: FontWeight.w600);
 
+  static const profileTextStyle = TextStyle(
+      fontSize: 17, fontWeight: FontWeight.w500);
+
 
 }

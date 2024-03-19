@@ -12,7 +12,7 @@ class DetailsProfileScreen extends StatefulWidget {
 class _DetailsProfileScreenState extends State<DetailsProfileScreen> {
   @override
   Widget build(BuildContext context) {
-    return AppScaffold(title: items.first,
+    return AppScaffold(title: '',
       icon2: Icons.arrow_back,
       onPressed2: (){
         Navigator.pop(context);

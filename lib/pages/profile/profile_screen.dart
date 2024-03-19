@@ -1,8 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:wellness_mobile/pages/profile/details_screen.dart';
+import 'package:wellness_mobile/configs/style.dart';
+import 'package:wellness_mobile/pages/auth/sign_in.dart';
 import 'package:wellness_mobile/pages/profile/edit_profile_screen.dart';
+import 'package:wellness_mobile/pages/profile/screens/saved_screen.dart';
+import 'package:wellness_mobile/pages/profile/screens/settings_screen.dart';
 import 'package:wellness_mobile/pages/widgets/app_scaffold/app_scaffold.dart';
+import 'package:wellness_mobile/pages/widgets/utils/custom_button.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -10,15 +14,6 @@ class ProfilePage extends StatefulWidget {
   @override
   State<ProfilePage> createState() => _ProfilePageState();
 }
-
-List<String> items = [
-  'Данные',
-  'Настройки',
-  'Сохраненные',
-  'Помощь',
-  'Уведомления',
-  'Выйти',
-];
 
 class _ProfilePageState extends State<ProfilePage> {
   @override
@@ -48,42 +43,78 @@ class _ProfilePageState extends State<ProfilePage> {
                 "Aimeerim Eminova",
                 style: TextStyle(
                     color: Color(0xff333A53),
-                    fontSize: 16,
+                    fontSize: 18,
                     fontWeight: FontWeight.w600),
               ),
               const SizedBox(
                 height: 20,
               ),
-              ListView.builder(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: items.length,
-                itemBuilder: (BuildContext ctx, index) {
-                  return InkWell(
-                    onTap: () {
-                      Navigator.push(context, CupertinoPageRoute(builder: (_)=>const DetailsProfileScreen()));
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 6),
-                      decoration: BoxDecoration(
-                        border: Border(
-                          bottom: BorderSide(
-                            color: Colors.grey.shade400,
-                            width: 1.0,
+              CustomSettings(title: 'Данные',
+                  iconMain: Icons.person_2_outlined,
+                  onPressed: (){}),
+              CustomSettings(title: 'Настройки',
+                  iconMain: Icons.settings_outlined,
+                  onPressed: (){Navigator.push(context,
+                      CupertinoPageRoute(builder: (_)=> const SettingsScreen()));}),
+              CustomSettings(title: 'Помощь',
+                  iconMain: Icons.help_outline_outlined,
+                  onPressed: (){}),
+              CustomSettings(title: 'Сохраненные',
+                  iconMain: Icons.bookmark_border,
+                  onPressed: (){Navigator.push(context,
+                      CupertinoPageRoute(builder: (_)=> const SavedScreen()));}),
+              CustomSettings(title: 'Выйти',
+                  iconMain: Icons.exit_to_app_outlined,
+                  onPressed: ()=> showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return Center(
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 5),
+                          height: 150,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(14)),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  IconButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    icon: const Icon(Icons.close),
+                                    iconSize: 20,
+                                  ),
+                                ],
+                              ),
+                              const Text(
+                                'Вы действительно хотите выйти?',
+                                style: TextStyle(fontSize: 15,fontWeight: FontWeight.w400),
+                              ),
+                              const SizedBox(
+                                height: 15,
+                              ),
+                              CustomButton(
+                                title: 'выйти',
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                  Navigator.of(context).pushReplacement(
+                                    MaterialPageRoute(
+                                        builder: (context) => const SignIn()),
+                                  );
+                                },
+                              )
+                            ],
                           ),
                         ),
-                      ),
-                      child: ListTile(
-                        title: Text(items[index]),
-                        trailing: Icon(
-                          Icons.chevron_right,
-                          color: Colors.grey.shade400,
-                        ),
-                      ),
-                    ),
-                  );
-                },
-              ),
+                      );
+                    },
+                  ),),
             ],
           ),
         ),
@@ -91,3 +122,49 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 }
+
+class CustomSettings extends StatelessWidget {
+  const CustomSettings(
+      {super.key,
+        required this.title,
+        required this.iconMain,
+        required this.onPressed});
+
+  final String title;
+  final IconData iconMain;
+  final VoidCallback onPressed;
+
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap:onPressed,
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
+      focusColor: Colors.white70,
+      child: Container(
+        margin:const  EdgeInsets.symmetric(horizontal: 0,vertical: 10),
+        padding:const  EdgeInsets.symmetric(horizontal: 5,vertical: 15),
+        decoration: BoxDecoration(
+          color: Colors.grey.shade50,
+          borderRadius: BorderRadius.circular(10),
+            border: Border.all(color: Colors.grey.shade100)
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                Icon(iconMain),
+               const  SizedBox(width: 8),
+                Text(title,style: AppStyle.profileTextStyle,),
+              ],
+            ),
+            const Icon(Icons.chevron_right,size: 33,color: Colors.grey,)
+          ],
+        ),
+      ),
+    );
+  }
+}
+

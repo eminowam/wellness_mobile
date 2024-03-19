@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:wellness_mobile/configs/color.dart';
 import 'package:wellness_mobile/pages/widgets/card/meditaton_card.dart';
 
-class SavedScreen extends StatelessWidget {
-  const SavedScreen({super.key});
+class SavedMentalScreen extends StatelessWidget {
+  const SavedMentalScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: mainBackColor,
+        backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.close),
+          icon: const Icon(Icons.close),
         ),
       ),
       body: SingleChildScrollView(

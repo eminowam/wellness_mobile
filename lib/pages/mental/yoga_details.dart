@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wellness_mobile/configs/color.dart';
 import 'package:wellness_mobile/pages/widgets/app_scaffold/app_scaffold.dart';
+import 'package:wellness_mobile/pages/widgets/utils/custom_button.dart';
 
 class YogaDetails extends StatelessWidget {
   const YogaDetails({super.key});
@@ -63,17 +64,12 @@ class YogaDetails extends StatelessWidget {
                     SizedBox(
                         width: 350, // <-- Your width
                         height: 48,
-                        child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: customButtonColor,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                            ),
-                            onPressed: () {},
-                            child: const Text("Start",style: TextStyle(color: Colors.white),))),
-                  ],
+                        child: CustomButton(title: 'Start', onPressed: () {  },)
+
                 ),
+                ]
               ),
+              )
             )
           ]),
         ));

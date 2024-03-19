@@ -22,7 +22,7 @@ class AppScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xffFAECE5),
+        backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
         title: Text(
