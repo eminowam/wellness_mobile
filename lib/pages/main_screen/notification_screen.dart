@@ -6,7 +6,8 @@ class NotificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppScaffold( title: 'Уведомления',
+    return AppScaffold(
+        title: 'Уведомления',
         icon2: Icons.arrow_back,
         onPressed2: (){
       Navigator.pop(context);

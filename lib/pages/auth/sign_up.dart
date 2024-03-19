@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:wellness_mobile/configs/color.dart';
 import 'package:wellness_mobile/configs/style.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 import 'package:wellness_mobile/pages/auth/sign_in.dart';
@@ -154,11 +153,7 @@ class _SignUpState extends State<SignUp> {
                             },
                             child: const Text(
                               "Войти",
-                              style: TextStyle(
-                                color: customButtonColor,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
-                              ),
+                              style: AppStyle.forgotPassword,
                             ))
                       ],
                     ),

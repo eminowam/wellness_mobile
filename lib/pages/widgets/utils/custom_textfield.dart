@@ -45,13 +45,13 @@ class CustomTextField extends StatelessWidget {
         decoration: InputDecoration(
           prefixIcon: path,
           filled: true,
-          fillColor:  Colors.white,
+          fillColor:  Colors.grey.shade100,
           contentPadding:
           const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
           hintText: title,
           hintStyle: AppStyle.editAuthStyle,
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide.none,
+            borderSide: BorderSide(color:Colors.grey.shade300 ),
             borderRadius: BorderRadius.circular(20),
           ),
           errorBorder: OutlineInputBorder(
