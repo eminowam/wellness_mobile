@@ -74,8 +74,7 @@ class _HomePageState extends State<HomePage> {
                           Navigator.push(
                               context,
                               CupertinoPageRoute(
-                                  builder: (_) => const NotificationScreen()));
-                        },
+                                  builder: (_) => const NotificationScreen()));},
                         icon: const Icon(Icons.notifications_none_outlined))
                   ],
                 ),
@@ -96,18 +95,17 @@ class _HomePageState extends State<HomePage> {
                       fontWeight: FontWeight.w500,
                       fontSize: 16),
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 10,),
                 Container(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                      const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(11),
                     color: Colors.white70,
                     border: Border.all(
                       width: 0.5,
-                      color: Colors.white10,
+                      color: Colors.grey.shade500,
                     ),
-                    // BorderSide(width: 0.2,color: Colors.white10)
                   ),
                   child: ListView.builder(
                     physics: const NeverScrollableScrollPhysics(),
