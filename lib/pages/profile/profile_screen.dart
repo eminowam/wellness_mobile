@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:wellness_mobile/configs/style.dart';
 import 'package:wellness_mobile/pages/auth/sign_in.dart';
 import 'package:wellness_mobile/pages/profile/edit_profile_screen.dart';
+import 'package:wellness_mobile/pages/profile/screens/data_screen.dart';
 import 'package:wellness_mobile/pages/profile/screens/saved_screen.dart';
 import 'package:wellness_mobile/pages/profile/screens/settings_screen.dart';
 import 'package:wellness_mobile/pages/widgets/app_scaffold/app_scaffold.dart';
@@ -51,10 +52,12 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               CustomSettings(title: 'Данные',
                   iconMain: Icons.person_2_outlined,
-                  onPressed: (){}),
+                  onPressed: (){Navigator.push(context,
+                      CupertinoPageRoute(builder: (_)=> const DataScreen()));}),
               CustomSettings(title: 'Настройки',
                   iconMain: Icons.settings_outlined,
-                  onPressed: (){Navigator.push(context,
+                  onPressed: (){
+                Navigator.push(context,
                       CupertinoPageRoute(builder: (_)=> const SettingsScreen()));}),
               CustomSettings(title: 'Помощь',
                   iconMain: Icons.help_outline_outlined,
@@ -70,6 +73,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     builder: (BuildContext context) {
                       return Center(
                         child: Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 10),
                           padding: const EdgeInsets.symmetric(
                               horizontal: 10, vertical: 5),
                           height: 150,
@@ -108,7 +112,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                         builder: (context) => const SignIn()),
                                   );
                                 },
-                              )
+                              ),
+
                             ],
                           ),
                         ),

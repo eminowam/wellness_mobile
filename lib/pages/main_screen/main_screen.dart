@@ -2,9 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wellness_mobile/pages/main_screen/notification_screen.dart';
 import 'package:wellness_mobile/pages/main_screen/recom_screen.dart';
-import 'package:wellness_mobile/pages/main_screen/steps.dart';
 import 'package:wellness_mobile/pages/widgets/app_scaffold/app_scaffold.dart';
-import 'package:wellness_mobile/pages/widgets/utils/custom_container.dart';
 import 'package:wellness_mobile/pages/widgets/utils/custom_search.dart';
 
 class HomePage extends StatefulWidget {
@@ -88,68 +86,6 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(
                   height: 15,
                 ),
-                CustomContainer(
-                  onTap: () {
-                    Navigator.push(context,
-                        CupertinoPageRoute(builder: (_) => StepsScreen()));
-                  },
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.backup_outlined,
-                                  color: Colors.brown.shade400,
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Text(
-                                  'Шаги',
-                                  style:
-                                      TextStyle(color: Colors.brown.shade400),
-                                ),
-                              ],
-                            ),
-                            const Icon(
-                              Icons.chevron_right,
-                              color: Colors.grey,
-                            )
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        const Row(
-                          children: [
-                            Text(
-                              '2120',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                            SizedBox(
-                              width: 3,
-                            ),
-                            Text(
-                              'Шагов',
-                              style: TextStyle(
-                                  color: Colors.grey,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
                 const SizedBox(
                   height: 15,
                 ),
@@ -212,9 +148,7 @@ class _HomePageState extends State<HomePage> {
                     },
                   ),
                 ),
-                SizedBox(
-                  height: 20,
-                )
+                const SizedBox(height: 20,)
               ],
             ),
           ),

@@ -27,9 +27,9 @@ class _MeditationCardState extends State<MeditationCard> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: Material(
-        color: Colors.white70,
+        color: Colors.grey.shade50,
         borderRadius: BorderRadius.circular(10),
-        elevation: 15,
+        elevation: 3,
         child: InkWell(
           onTap: () {
             Navigator.push(context, CupertinoPageRoute(builder: (_)=>const YogaDetails()));
