@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-        title: "",
+        title: "Wellness App",
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 0),
           child: SingleChildScrollView(
