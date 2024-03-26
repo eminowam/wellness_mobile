@@ -76,7 +76,7 @@ class DataScreen extends StatelessWidget {
                     onChanged: () {},
                     obscureText: true,
                     maxLines: 1),
-               const  SizedBox(height: 15,),
+               const  SizedBox(height: 25,),
                 CustomButton(title: 'Сохранить',
                     onPressed: (){Navigator.pop(context);}),
                const  SizedBox(height: 15,)
