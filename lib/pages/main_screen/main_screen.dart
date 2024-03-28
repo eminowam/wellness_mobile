@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:wellness_mobile/configs/color.dart';
 import 'package:wellness_mobile/pages/main_screen/notification_screen.dart';
 import 'package:wellness_mobile/pages/main_screen/recom_screen.dart';
 import 'package:wellness_mobile/pages/widgets/app_scaffold/app_scaffold.dart';
+import 'package:wellness_mobile/pages/widgets/utils/custom_container.dart';
 import 'package:wellness_mobile/pages/widgets/utils/custom_search.dart';
 
 class HomePage extends StatefulWidget {
@@ -43,7 +45,7 @@ class _HomePageState extends State<HomePage> {
                           backgroundColor: Colors.grey,
                           radius: 25,
                           backgroundImage: NetworkImage(
-                              'https://t3.ftcdn.net/jpg/04/23/59/74/360_F_423597477_AKCjGMtevfCi9XJG0M8jter97kG466y7.jpg'),
+                              "https://thumbs.dreamstime.com/b/asian-beauty-animation-portrait-beautiful-girl-ancient-national-turban-married-woman-s-headdress-central-asia-vector-167032286.jpg"),
                         ),
                         SizedBox(
                           width: 20,
@@ -52,7 +54,7 @@ class _HomePageState extends State<HomePage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Hi,Karry',
+                              'Hi,Aimeerim',
                               style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 17,
@@ -85,9 +87,15 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(
                   height: 15,
                 ),
-                const SizedBox(
-                  height: 15,
+                const SizedBox(height: 10),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    CustomContainer(textTitle: '2234', textSub: 'шагов', horizontal: 55),
+                    CustomContainer(textTitle: '5ч 45м', textSub: 'сон', horizontal: 45),
+                  ],
                 ),
+                const SizedBox(height: 15,),
                 Text(
                   'Kатегории здоровья',
                   style: TextStyle(
@@ -97,8 +105,6 @@ class _HomePageState extends State<HomePage> {
                 ),
                 const SizedBox(height: 10,),
                 Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(11),
                     color: Colors.white70,
