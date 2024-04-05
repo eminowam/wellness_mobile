@@ -22,11 +22,8 @@ dependencies:
 
 
   cupertino_icons:
-  firebase_auth:
-  firebase_storage:
-  cloud_firestore:
-  firebase_messaging:
-  firebase_core:
+  firebase_core: ^2.27.0
+  firebase_auth: ^4.17.8
 
 
 dev_dependencies:

@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wellness_mobile/pages/mental/saved_screen.dart';
-import 'package:wellness_mobile/pages/widgets/app_scaffold/app_scaffold.dart';
-import 'package:wellness_mobile/pages/widgets/card/meditaton_card.dart';
+
+import '../../widgets/app_scaffold/app_scaffold.dart';
+import '../../widgets/card/meditaton_card.dart';
 
 class MentalHealthPage extends StatefulWidget {
   const MentalHealthPage({super.key});

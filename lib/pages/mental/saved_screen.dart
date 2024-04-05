@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wellness_mobile/configs/color.dart';
-import 'package:wellness_mobile/pages/widgets/card/meditaton_card.dart';
+
+import '../../widgets/card/meditaton_card.dart';
 
 class SavedMentalScreen extends StatelessWidget {
   const SavedMentalScreen({super.key});

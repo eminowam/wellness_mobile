@@ -2,7 +2,7 @@ plugins {
     id "com.android.application"
     id "kotlin-android"
     id "dev.flutter.flutter-gradle-plugin"
-//    id("com.google.gms.google-services")
+    id "com.google.gms.google-services"
 }
 
 def localProperties = new Properties()
@@ -40,6 +40,8 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
+
+    classpath 'com.google.gms:google-services:4.3.10'
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).

@@ -2,10 +2,12 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:wellness_mobile/configs/style.dart';
 import 'package:wellness_mobile/pages/auth/sign_up.dart';
-import 'package:wellness_mobile/pages/widgets/bottom_nav.dart';
-import 'package:wellness_mobile/pages/widgets/utils/custom_button.dart';
-import 'package:wellness_mobile/pages/widgets/utils/custom_textfield.dart';
-import 'package:wellness_mobile/pages/widgets/utils/socials_button.dart';
+
+import '../../data/auth_service.dart';
+import '../../widgets/bottom_nav.dart';
+import '../../widgets/utils/custom_button.dart';
+import '../../widgets/utils/custom_textfield.dart';
+import '../../widgets/utils/socials_button.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -16,6 +18,8 @@ class SignIn extends StatefulWidget {
 
 class _SignInState extends State<SignIn> {
   bool passanable = true;
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -43,9 +47,10 @@ class _SignInState extends State<SignIn> {
                   children: [
                     const Text('Почта'),
                     CustomTextField(
+                        controller: _emailController,
                         title: 'Введите ваш Email',
                         onChanged: () {},
-                        obscureText: true,
+                        obscureText: false,
                         maxLines: 1),
                     const SizedBox(
                       height: 10,
@@ -53,6 +58,7 @@ class _SignInState extends State<SignIn> {
                     const Text('Пароль'),
                     CustomTextField(
                       maxLines: 1,
+                      controller: _passwordController,
                       obscureText: passanable,
                       onChanged: (value) {
                         setState(() {
@@ -71,10 +77,24 @@ class _SignInState extends State<SignIn> {
                     )
                   ],
                 ),
-               const SizedBox(height: 25,),
+                const SizedBox(
+                  height: 25,
+                ),
                 CustomButton(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_)=>BottomNav()));
+                  onPressed: () async {
+                    final message = await AuthService().login(
+                      email: _emailController.text,
+                      password: _passwordController.text,
+                    );
+                    if (message!.contains('Вход успешен')) {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => const BottomNav()));
+                    }
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(message),
+                      ),
+                    );
                   },
                   title: "Войти",
                 ),

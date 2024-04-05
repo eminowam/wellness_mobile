@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:wellness_mobile/configs/style.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
+import 'package:wellness_mobile/data/auth_service.dart';
 import 'package:wellness_mobile/pages/auth/sign_in.dart';
-import 'package:wellness_mobile/pages/widgets/bottom_nav.dart';
-import 'package:wellness_mobile/pages/widgets/utils/custom_button.dart';
-import 'package:wellness_mobile/pages/widgets/utils/custom_textfield.dart';
+
+import '../../widgets/bottom_nav.dart';
+import '../../widgets/utils/custom_button.dart';
+import '../../widgets/utils/custom_textfield.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -20,6 +22,12 @@ class _SignUpState extends State<SignUp> {
   bool passanable2 = true;
   int _currentIndex = 1;
   bool _onEditing = true;
+
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _passwordController2 = TextEditingController();
+
 
 
   @override
@@ -62,6 +70,7 @@ class _SignUpState extends State<SignUp> {
                       children: [
                         const Text('Имя'),
                         CustomTextField(
+                          controller: _nameController,
                             title: 'Введите ваш Email',
                             onChanged: () {},
                             obscureText: true,
@@ -71,6 +80,7 @@ class _SignUpState extends State<SignUp> {
                         ),
                         const Text('Почта '),
                         CustomTextField(
+                          controller: _emailController,
                             title: 'Введите ваш Email',
                             onChanged: () {},
                             obscureText: true,
@@ -80,6 +90,7 @@ class _SignUpState extends State<SignUp> {
                         ),
                         const Text('Пароль'),
                         CustomTextField(
+                          controller: _passwordController,
                           maxLines: 1,
                           obscureText: passanable,
                           onChanged: (value) {
@@ -103,6 +114,7 @@ class _SignUpState extends State<SignUp> {
                         ),
                         const Text('Повторите Ваш пароль'),
                         CustomTextField(
+                          controller: _passwordController2,
                           maxLines: 1,
                           obscureText: passanable2,
                           onChanged: (value) {
@@ -145,11 +157,19 @@ class _SignUpState extends State<SignUp> {
                           style: AppStyle.textAuthStyle,
                         ),
                         TextButton(
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const SignIn()));
+                            onPressed: () async{
+                              final message =await AuthService().registration
+                                (email: _emailController.text,
+                                  password: _passwordController.text);
+                              if (message!.contains('Успешно авторизованы')) {
+                                Navigator.of(context).pushReplacement(
+                                    MaterialPageRoute(builder: (context) => const BottomNav()));
+                              }
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(message),
+                                ),
+                              );
                             },
                             child: const Text(
                               "Войти",
