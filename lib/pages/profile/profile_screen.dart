@@ -5,8 +5,9 @@ import 'package:wellness_mobile/pages/auth/sign_in.dart';
 import 'package:wellness_mobile/pages/profile/screens/data_screen.dart';
 import 'package:wellness_mobile/pages/profile/screens/saved_screen.dart';
 import 'package:wellness_mobile/pages/profile/screens/settings_screen.dart';
-import 'package:wellness_mobile/pages/widgets/app_scaffold/app_scaffold.dart';
-import 'package:wellness_mobile/pages/widgets/utils/custom_button.dart';
+
+import '../../widgets/app_scaffold/app_scaffold.dart';
+import '../../widgets/utils/custom_button.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});

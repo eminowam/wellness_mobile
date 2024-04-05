@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wellness_mobile/pages/profile/screens/regret_password.dart';
-import 'package:wellness_mobile/pages/widgets/app_scaffold/app_scaffold.dart';
 
 import '../../../configs/color.dart';
 import '../../../configs/style.dart';
+import '../../../widgets/app_scaffold/app_scaffold.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});

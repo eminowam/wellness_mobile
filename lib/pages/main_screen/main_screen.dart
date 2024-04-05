@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:wellness_mobile/configs/color.dart';
 import 'package:wellness_mobile/pages/main_screen/notification_screen.dart';
 import 'package:wellness_mobile/pages/main_screen/recom_screen.dart';
-import 'package:wellness_mobile/pages/widgets/app_scaffold/app_scaffold.dart';
-import 'package:wellness_mobile/pages/widgets/utils/custom_container.dart';
-import 'package:wellness_mobile/pages/widgets/utils/custom_search.dart';
+
+import '../../widgets/app_scaffold/app_scaffold.dart';
+import '../../widgets/utils/custom_container.dart';
+import '../../widgets/utils/custom_search.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

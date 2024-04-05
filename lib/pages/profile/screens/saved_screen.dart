@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wellness_mobile/pages/widgets/app_scaffold/app_scaffold.dart';
+
+import '../../../widgets/app_scaffold/app_scaffold.dart';
 
 class SavedScreen extends StatelessWidget {
   const SavedScreen({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:wellness_mobile/pages/widgets/app_scaffold/app_scaffold.dart';
-import 'package:wellness_mobile/pages/widgets/utils/custom_button.dart';
-import 'package:wellness_mobile/pages/widgets/utils/custom_textfield.dart';
+import '../../../widgets/app_scaffold/app_scaffold.dart';
+import '../../../widgets/utils/custom_button.dart';
+import '../../../widgets/utils/custom_textfield.dart';
 
 class RegretPassword extends StatefulWidget {
   const RegretPassword({super.key});
