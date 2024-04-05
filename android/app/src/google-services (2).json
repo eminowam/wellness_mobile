@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "751376771643",
+    "project_id": "wellnessmobile-bbe62",
+    "storage_bucket": "wellnessmobile-bbe62.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:751376771643:android:c5551c679692f52e1eca1e",
+        "android_client_info": {
+          "package_name": "com.example.wellness_mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbG2MBIr1w4nuLefq3V09G1di_iaSn4YA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

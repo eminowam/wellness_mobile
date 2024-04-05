@@ -21,7 +21,13 @@ dependencies:
   audioplayers: ^5.2.1
 
 
-  cupertino_icons: ^1.0.2
+  cupertino_icons:
+  firebase_auth:
+  firebase_storage:
+  cloud_firestore:
+  firebase_messaging:
+  firebase_core:
+
 
 dev_dependencies:
   flutter_test:
