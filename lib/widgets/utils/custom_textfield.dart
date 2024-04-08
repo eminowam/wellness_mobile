@@ -12,10 +12,11 @@ class CustomTextField extends StatelessWidget {
         this.onPressed,
         required this.obscureText,
         required this.maxLines,
-        this.path});
+        this.path, this.errorText});
 
   final String title;
   final IconData? icon;
+  final String? errorText;
   final Function onChanged;
   final TextEditingController? controller;
   final TextInputType? textInputType;
@@ -32,16 +33,17 @@ class CustomTextField extends StatelessWidget {
         maxLines: maxLines,
         obscureText: obscureText,
         controller: controller,
+        // validator: validator,
         keyboardType: textInputType,
-        // validator: (value) {
-        //   if (value == null || value.isEmpty) {
-        //     return 'Это поля не должен быть пустым';
-        //   }
-        //   return null;
-        // },
-        // onChanged: (value) {
-        //   onChanged(value);
-        // },
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return "${errorText}";
+          }
+          return null;
+        },
+        onChanged: (value) {
+          onChanged(value);
+        },
         decoration: InputDecoration(
           prefixIcon: path,
           filled: true,
