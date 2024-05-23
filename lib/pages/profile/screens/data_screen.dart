@@ -1,11 +1,25 @@
 import 'package:flutter/material.dart';
+import '../../../data/models/src/login/user_data_model.dart';
 import '../../../widgets/app_scaffold/app_scaffold.dart';
 import '../../../widgets/utils/custom_button.dart';
 import '../../../widgets/utils/custom_textfield.dart';
 
-class DataScreen extends StatelessWidget {
+class DataScreen extends StatefulWidget {
   const DataScreen({super.key});
 
+  @override
+  State<DataScreen> createState() => _DataScreenState();
+}
+
+class _DataScreenState extends State<DataScreen> {
+
+  late UserDataModel user;
+
+  @override
+  void initState() {
+    user = UserDataModel.copyWith(user);
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
@@ -45,6 +59,7 @@ class DataScreen extends StatelessWidget {
                 ),
                 const Text("Новая почта"),
                 CustomTextField(
+                    initValue: user.email,
                     title: 'Новая почта',
                     onChanged: () {},
                     obscureText: true,

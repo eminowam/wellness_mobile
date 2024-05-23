@@ -12,11 +12,12 @@ class CustomTextField extends StatelessWidget {
         this.onPressed,
         required this.obscureText,
         required this.maxLines,
-        this.path, this.errorText});
+        this.path, this.errorText, this.initValue});
 
   final String title;
   final IconData? icon;
   final String? errorText;
+  final String? initValue;
   final Function onChanged;
   final TextEditingController? controller;
   final TextInputType? textInputType;
@@ -31,6 +32,7 @@ class CustomTextField extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 5),
       child: TextFormField(
         maxLines: maxLines,
+        initialValue: initValue,
         obscureText: obscureText,
         controller: controller,
         // validator: validator,
