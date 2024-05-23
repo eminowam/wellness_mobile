@@ -27,7 +27,6 @@ class _SignUpState extends State<SignUp> {
       return;
     }
     _formKey.currentState?.save();
-    // Здесь будет вызов метода регистрации
   }
 
   bool passanable = true;
@@ -36,7 +35,6 @@ class _SignUpState extends State<SignUp> {
   bool _onEditing = true;
 
   final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _passwordController2 = TextEditingController();
 
