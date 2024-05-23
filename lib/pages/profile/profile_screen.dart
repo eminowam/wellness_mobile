@@ -6,6 +6,7 @@ import 'package:wellness_mobile/pages/profile/screens/data_screen.dart';
 import 'package:wellness_mobile/pages/profile/screens/saved_screen.dart';
 import 'package:wellness_mobile/pages/profile/screens/settings_screen.dart';
 
+import '../../configs/color.dart';
 import '../../widgets/app_scaffold/app_scaffold.dart';
 import '../../widgets/utils/custom_button.dart';
 
@@ -155,8 +156,8 @@ class CustomSettings extends StatelessWidget {
           children: [
             Row(
               children: [
-                Icon(iconMain),
-               const  SizedBox(width: 8),
+                Icon(iconMain,color: bottomColor,size: 20),
+               const  SizedBox(width: 10),
                 Text(title,style: AppStyle.profileTextStyle,),
               ],
             ),

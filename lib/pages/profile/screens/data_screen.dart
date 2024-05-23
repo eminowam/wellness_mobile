@@ -13,13 +13,13 @@ class DataScreen extends StatefulWidget {
 
 class _DataScreenState extends State<DataScreen> {
 
-  late UserDataModel user;
+  // late UserDataModel user;
 
   @override
-  void initState() {
-    user = UserDataModel.copyWith(user);
-    super.initState();
-  }
+  // void initState() {
+  //   user = UserDataModel.copyWith(user);
+  //   super.initState();
+  // }
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
@@ -59,7 +59,7 @@ class _DataScreenState extends State<DataScreen> {
                 ),
                 const Text("Новая почта"),
                 CustomTextField(
-                    initValue: user.email,
+                    // initValue: user.email,
                     title: 'Новая почта',
                     onChanged: () {},
                     obscureText: true,

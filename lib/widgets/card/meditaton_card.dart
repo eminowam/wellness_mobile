@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:wellness_mobile/pages/mental/yoga_details.dart';
 
 import '../../../configs/color.dart';
+import '../../data/db_helper/db_helper.dart';
 
 class MeditationCard extends StatefulWidget {
   final String image;
@@ -22,6 +23,18 @@ class MeditationCard extends StatefulWidget {
 class _MeditationCardState extends State<MeditationCard> {
   bool isLike = false;
 
+  late DatabaseHelper databaseHelper;
+
+  @override
+  void initState() {
+    initSharedPref();
+    super.initState();
+  }
+
+  initSharedPref() async {
+    databaseHelper = DatabaseHelper();
+    databaseHelper.initSharedPref();
+  }
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -73,7 +86,13 @@ class _MeditationCardState extends State<MeditationCard> {
                   ),
                 ),
                 IconButton(
-                    onPressed: () {
+                    onPressed: () async{
+                      // await databaseHelper
+                      //     .saveData();
+                       ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Saved')),
+                      );
+
                       isLike = !isLike;
                       setState(() {});
                     },
