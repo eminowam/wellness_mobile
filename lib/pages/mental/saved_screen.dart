@@ -1,12 +1,41 @@
 import 'package:flutter/material.dart';
 
+import '../../data/db_helper/db_helper.dart';
 import '../../widgets/card/meditaton_card.dart';
 
-class SavedMentalScreen extends StatelessWidget {
+class SavedMentalScreen extends StatefulWidget {
   const SavedMentalScreen({super.key});
 
   @override
+  State<SavedMentalScreen> createState() => _SavedMentalScreenState();
+}
+
+class _SavedMentalScreenState extends State<SavedMentalScreen> {
+  late DatabaseHelper databaseHelper;
+
+  @override
+  void initState() {
+    initPref();
+    super.initState();
+  }
+
+  List<int> ids = [];
+  bool isLoading = true;
+
+  initPref() async {
+    databaseHelper = DatabaseHelper();
+    await databaseHelper.initSharedPref();
+    ids = databaseHelper.getSavedData();
+    setState(() {
+      isLoading = false;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    if(isLoading){
+      return const  CircularProgressIndicator();
+    }
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -25,7 +54,7 @@ class SavedMentalScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
              const Text(
-                'Закладки',
+                'Избранные',
                 style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w500,

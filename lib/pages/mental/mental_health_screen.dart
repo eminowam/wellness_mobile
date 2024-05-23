@@ -20,7 +20,7 @@ class _MentalHealthPageState extends State<MentalHealthPage> {
       icon1: Icons.bookmark_border,
       onPressed: () {
         Navigator.push(
-            context, CupertinoPageRoute(builder: (_) => SavedMentalScreen()));},
+            context, CupertinoPageRoute(builder: (_) => const SavedMentalScreen()));},
       child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),

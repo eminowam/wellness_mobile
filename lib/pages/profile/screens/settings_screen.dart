@@ -60,7 +60,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
           ),
         ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
               decoration: BoxDecoration(
