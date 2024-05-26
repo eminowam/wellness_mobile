@@ -7,4 +7,4 @@ const Color customButtonColor=Color(0xff53784C);
 
 const Color mainBackColor=Color(0xffFAECE5);
 
-const Color bottomColor=Color(0xff483D8B);
+const Color bottomColor=Color(0xff7063c1);
