@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../data/models/src/login/user_data_model.dart';
 import '../../../widgets/app_scaffold/app_scaffold.dart';
 import '../../../widgets/utils/custom_button.dart';
 import '../../../widgets/utils/custom_textfield.dart';
@@ -13,13 +12,7 @@ class DataScreen extends StatefulWidget {
 
 class _DataScreenState extends State<DataScreen> {
 
-  // late UserDataModel user;
 
-  @override
-  // void initState() {
-  //   user = UserDataModel.copyWith(user);
-  //   super.initState();
-  // }
   @override
   Widget build(BuildContext context) {
     return AppScaffold(

@@ -24,9 +24,12 @@ class _RegretPasswordState extends State<RegretPassword> {
         Navigator.pop(context);
       },
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+           const  SizedBox(height: 15,),
+            const Text('Текущий пароль'),
             CustomTextField(
               maxLines: 1,
               obscureText: passanable1,
@@ -36,7 +39,7 @@ class _RegretPasswordState extends State<RegretPassword> {
                 });
               },
               textInputType: TextInputType.visiblePassword,
-              title: "Текущий пароль",
+              title: "Введите пароль",
               icon: passanable1 ? Icons.visibility : Icons.visibility_off,
               onPressed: () {
                 setState(() {
@@ -45,6 +48,7 @@ class _RegretPasswordState extends State<RegretPassword> {
               },
             ),
             const SizedBox(height: 15),
+            const Text('Новый пароль'),
             CustomTextField(
               maxLines: 1,
               obscureText: passanable2,
@@ -54,7 +58,7 @@ class _RegretPasswordState extends State<RegretPassword> {
                 });
               },
               textInputType: TextInputType.visiblePassword,
-              title: "Новый пароль",
+              title: "Введите пароль",
               icon: passanable2 ? Icons.visibility : Icons.visibility_off,
               onPressed: () {
                 setState(() {
@@ -63,6 +67,7 @@ class _RegretPasswordState extends State<RegretPassword> {
               },
             ),
             const SizedBox(height: 15),
+            const Text('Повторите новый пароль'),
             CustomTextField(
               maxLines: 1,
               obscureText: passanable3,
@@ -72,7 +77,7 @@ class _RegretPasswordState extends State<RegretPassword> {
                 });
               },
               textInputType: TextInputType.visiblePassword,
-              title: "Повторите новый пароль",
+              title: "Введите пароль",
               icon: passanable3 ? Icons.visibility : Icons.visibility_off,
               onPressed: () {
                 setState(() {

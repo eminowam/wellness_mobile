@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wellness_mobile/configs/color.dart';
 
 class AppScaffold extends StatelessWidget {
   final String title;
@@ -22,20 +23,20 @@ class AppScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: bottomColor,
         elevation: 0,
         centerTitle: true,
         title: Text(
           title,
-          style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+          style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 20,color: Colors.white),
         ),
         leading: IconButton(
             onPressed: onPressed2,
-            icon: Icon(icon2, color: const Color(0xff5F5F5F))),
+            icon: Icon(icon2, color: Colors.white)),
         actions: [
           IconButton(
               onPressed: onPressed,
-              icon: Icon(icon1, color: const Color(0xff5F5F5F)))
+              icon: Icon(icon1, color: Colors.white70))
         ],
       ),
       body: child,
