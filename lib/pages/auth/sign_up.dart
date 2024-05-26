@@ -84,7 +84,7 @@ class _SignUpState extends State<SignUp> {
                               title: 'Введите ваш Email',
                               onChanged: (value) => _email = value ?? '',
                               errorText: 'Введите корректный email',
-                              obscureText: true,
+                              obscureText: false,
                               maxLines: 1),
                           const SizedBox(
                             height: 10,
