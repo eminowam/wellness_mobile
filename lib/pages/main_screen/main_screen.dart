@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                               context,
                               CupertinoPageRoute(
                                   builder: (_) => const NotificationScreen()));},
-                        icon: const Icon(Icons.notifications_none_outlined))
+                        icon: const Icon(Icons.notifications_active_outlined))
                   ],
                 ),
                 const SizedBox(

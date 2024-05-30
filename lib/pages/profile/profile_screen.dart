@@ -183,7 +183,7 @@ class CustomSettings extends StatelessWidget {
             ),
             const Icon(
               Icons.chevron_right,
-              size: 33,
+              size: 25,
               color: Colors.grey,
             )
           ],

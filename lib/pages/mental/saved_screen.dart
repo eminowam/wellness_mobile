@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wellness_mobile/configs/color.dart';
 
 import '../../data/db_helper/db_helper.dart';
 import '../../widgets/card/meditaton_card.dart';
@@ -38,13 +39,13 @@ class _SavedMentalScreenState extends State<SavedMentalScreen> {
     }
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: bottomColor,
         elevation: 0,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: const Icon(Icons.close),
+          icon: const Icon(Icons.close,color: Colors.white,),
         ),
       ),
       body: SingleChildScrollView(
