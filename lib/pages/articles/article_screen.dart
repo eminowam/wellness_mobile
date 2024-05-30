@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wellness_mobile/widgets/app_scaffold/app_scaffold.dart';
+import 'package:wellness_mobile/widgets/card/article_card.dart';
 
 class ArticleScreen extends StatelessWidget {
   const ArticleScreen({super.key});
@@ -8,16 +9,30 @@ class ArticleScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppScaffold(
       title: 'Статьи',
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-            child: Column(
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
-              ],
-            ),
-          ),
+            SizedBox(height: 5),
+            Text("Все о здоровье",
+            style: TextStyle(fontSize: 24,fontWeight: FontWeight.w600),),
+                SizedBox(height: 15,),
+            GridView.builder(
+              shrinkWrap: true,
+              itemCount: 3,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 4.0,
+                  mainAxisSpacing: 4.0),
+              itemBuilder: (BuildContext context, int index) {
+                return ArticleCard();
+              },
+            )
+          ]),
         ),
-        );
+      ),
+    );
   }
 }

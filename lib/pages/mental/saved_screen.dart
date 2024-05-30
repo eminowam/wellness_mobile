@@ -47,6 +47,7 @@ class _SavedMentalScreenState extends State<SavedMentalScreen> {
           },
           icon: const Icon(Icons.close,color: Colors.white,),
         ),
+
       ),
       body: SingleChildScrollView(
         child: Padding(
