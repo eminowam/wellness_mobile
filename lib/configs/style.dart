@@ -20,5 +20,7 @@ class AppStyle{
   static const profileTextStyle = TextStyle(
       fontSize: 17, fontWeight: FontWeight.w500);
 
+  static const editProfileText =
+  TextStyle(fontSize: 15, fontWeight: FontWeight.w500);
 
 }
