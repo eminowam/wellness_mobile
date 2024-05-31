@@ -12,13 +12,16 @@ class ArticleScreen extends StatelessWidget {
       child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-          child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-            SizedBox(height: 5),
-            Text("Все о здоровье",
-            style: TextStyle(fontSize: 24,fontWeight: FontWeight.w600),),
-                SizedBox(height: 15,),
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            const SizedBox(height: 5),
+            const Text(
+              "Все о здоровье",
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
             GridView.builder(
               shrinkWrap: true,
               itemCount: 3,
@@ -27,7 +30,7 @@ class ArticleScreen extends StatelessWidget {
                   crossAxisSpacing: 4.0,
                   mainAxisSpacing: 4.0),
               itemBuilder: (BuildContext context, int index) {
-                return ArticleCard();
+                return const ArticleCard();
               },
             )
           ]),
