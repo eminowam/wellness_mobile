@@ -14,9 +14,12 @@ class ArticleCard extends StatelessWidget {
         margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
         height: 100,
         width: 100,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20)
+        ),
         child: Stack(
           children: [
-            Image.asset('assets/mental/yoga.webp'),
+            Image.asset('assets/mental/yoga.webp',fit: BoxFit.fill,),
            const  Align(
                 alignment: Alignment.bottomLeft,
                 child: Text(

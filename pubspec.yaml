@@ -20,6 +20,8 @@ dependencies:
   path_provider: ^2.0.15
   audioplayers: ^5.2.1
   image_picker:
+  equatable: ^2.0.5
+
 
 
   cupertino_icons:
