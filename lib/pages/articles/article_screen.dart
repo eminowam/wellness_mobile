@@ -19,7 +19,6 @@ class _ArticleScreenState extends State<ArticleScreen> {
     super.initState();
     BlocProvider.of<ArticleBloc>(context)
         .add((ArticleAllEvent()));
-
     }
   @override
   Widget build(BuildContext context) {
