@@ -4,6 +4,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wellness_mobile/bloc/article_bloc/article_bloc.dart';
 import 'package:wellness_mobile/widgets/bottom_nav.dart';
 
+import '../bloc/mental_bloc/mental_bloc.dart';
+
 class MyApp extends StatelessWidget {
   final SharedPreferences preferences;
 
@@ -14,6 +16,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
         providers: [
           BlocProvider(create: (_) => ArticleBloc(preferences)),
+          BlocProvider(create: (_) => MentalBloc(preferences)),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,

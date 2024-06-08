@@ -68,11 +68,12 @@ class _SavedMentalScreenState extends State<SavedMentalScreen> {
                   itemCount: 3,
                   physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (BuildContext context, index) {
-                    return const MeditationCard(
-                        image: 'assets/mental/yoga.webp',
-                        title: 'Как медитировать',
-                        subTitle:
-                            "Пару слов о том как медитировать и почему стоит м главное как это правильно сделать? ");
+                    // return const MeditationCard(
+                    //     image: 'assets/mental/yoga.webp',
+                    //     title: 'Как медитировать',
+                    //     subTitle:
+                    //         "Пару слов о том как медитировать и почему стоит м главное как это правильно сделать? ",
+                    //   results: null,);
                   })
             ],
           ),
