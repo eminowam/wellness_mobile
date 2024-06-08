@@ -1,7 +1,6 @@
 part of 'article_bloc.dart';
 
 @immutable
-
 sealed class ArticleEvent extends Equatable {
   const ArticleEvent();
 }
