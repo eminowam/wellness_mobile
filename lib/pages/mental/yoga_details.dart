@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:wellness_mobile/data/models/article/mental_model.dart';
 
@@ -15,6 +16,24 @@ class YogaDetails extends StatefulWidget {
 }
 
 class _YogaDetailsState extends State<YogaDetails> {
+  final player = AudioPlayer();
+
+  late AudioPlayer _audioPlayer;
+  late String _audioUrl;
+
+  @override
+  void initState() {
+    super.initState();
+    _audioPlayer = AudioPlayer();
+    // _fetchAudioUrl();
+  }
+
+  @override
+  void dispose() {
+    _audioPlayer.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
@@ -28,23 +47,30 @@ class _YogaDetailsState extends State<YogaDetails> {
             const SizedBox(
               height: 10,
             ),
-            Image.network(
-              widget.results.image,
-              fit: BoxFit.cover,
-              loadingBuilder: (context, child, loadingProgress) {
-                if (loadingProgress == null) return child;
-                return Center(
-                  child: CircularProgressIndicator(
-                    value: loadingProgress.expectedTotalBytes != null
-                        ? loadingProgress.cumulativeBytesLoaded /
-                            loadingProgress.expectedTotalBytes!
-                        : null,
-                  ),
-                );
-              },
-              errorBuilder: (context, error, stackTrace) {
-                return const Icon(Icons.error);
-              },
+            Container(
+              width: 300,
+              height: 190,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(18),
+                child: Image.network(
+                  widget.results.image,
+                  fit: BoxFit.cover,
+                  loadingBuilder: (context, child, loadingProgress) {
+                    if (loadingProgress == null) return child;
+                    return Center(
+                      child: CircularProgressIndicator(
+                        value: loadingProgress.expectedTotalBytes != null
+                            ? loadingProgress.cumulativeBytesLoaded /
+                                loadingProgress.expectedTotalBytes!
+                            : null,
+                      ),
+                    );
+                  },
+                  errorBuilder: (context, error, stackTrace) {
+                    return const Icon(Icons.error);
+                  },
+                ),
+              ),
             ),
             Container(
                 decoration: const BoxDecoration(
@@ -90,7 +116,9 @@ class _YogaDetailsState extends State<YogaDetails> {
                             height: 48,
                             child: CustomButton(
                               title: 'Start',
-                              onPressed: () {},
+                              onPressed: () {
+                                // player.play(Source(widget.results.audio));
+                              },
                             )),
                       ]),
                 ))
