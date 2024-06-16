@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:wellness_mobile/pages/main_screen/notification_screen.dart';
 import 'package:wellness_mobile/pages/main_screen/recom_screen.dart';
 
 import '../../widgets/app_scaffold/app_scaffold.dart';
+import '../../widgets/card/swiper.dart';
 import '../../widgets/utils/custom_container.dart';
 import '../../widgets/utils/custom_search.dart';
 
@@ -36,51 +36,8 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 10,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Row(
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: Colors.grey,
-                          radius: 25,
-                          backgroundImage: NetworkImage(
-                              "https://thumbs.dreamstime.com/b/asian-beauty-animation-portrait-beautiful-girl-ancient-national-turban-married-woman-s-headdress-central-asia-vector-167032286.jpg"),
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Hi,Aimeerim',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                            Text(
-                              'Always be healthy',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w400),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    IconButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              CupertinoPageRoute(
-                                  builder: (_) => const NotificationScreen()));},
-                        icon: const Icon(Icons.notifications_active_outlined))
-                  ],
-                ),
+                const SizedBox(height: 20),
+               const  SwiperImage(),
                 const SizedBox(
                   height: 20,
                 ),

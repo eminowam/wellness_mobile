@@ -23,6 +23,8 @@ dependencies:
   equatable: ^2.0.5
   cached_network_image: ^3.3.1
   http:
+  carousel_slider: ^4.2.1
+
 
 
 
@@ -51,6 +53,7 @@ flutter:
      - assets/icons/
      - assets/mental/
      - assets/audio/
+     - assets/slider/
 
 
   # fonts:
