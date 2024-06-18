@@ -4,7 +4,7 @@ import 'package:wellness_mobile/pages/main_screen/main_screen.dart';
 import 'package:wellness_mobile/pages/mental/mental_health_screen.dart';
 import 'package:wellness_mobile/pages/profile/profile_screen.dart';
 
-import '../pages/articles/article_screen.dart';
+import '../pages/articles/menu_screen.dart';
 
 class BottomNav extends StatefulWidget {
   const BottomNav({super.key});
