@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wellness_mobile/pages/main_screen/recom_screen.dart';
 
 import '../../bloc/article_bloc/article_bloc.dart';
 import '../../widgets/app_scaffold/app_scaffold.dart';
