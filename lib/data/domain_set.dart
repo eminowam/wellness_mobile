@@ -5,3 +5,4 @@ const String imageApi = "";
 
 const String articlesApi = "$baseApi/articles/";
 const String meditationApi = '$baseApi/meditations/';
+const String foodApi = '$baseApi/foods/';
