@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wellness_mobile/pages/main_screen/recom_screen.dart';
 
+import '../../bloc/article_bloc/article_bloc.dart';
 import '../../widgets/app_scaffold/app_scaffold.dart';
+import '../../widgets/card/article_card.dart';
 import '../../widgets/card/swiper.dart';
 import '../../widgets/utils/custom_container.dart';
 import '../../widgets/utils/custom_search.dart';
@@ -37,7 +40,7 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 20),
-               const  SwiperImage(),
+                const SwiperImage(),
                 const SizedBox(
                   height: 20,
                 ),
@@ -49,68 +52,63 @@ class _HomePageState extends State<HomePage> {
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    CustomContainer(textTitle: '2234', textSub: 'шагов', horizontal: 55),
-                    CustomContainer(textTitle: '5ч 45м', textSub: 'сон', horizontal: 45),
+                    CustomContainer(
+                        textTitle: '2234', textSub: 'шагов', horizontal: 55),
+                    CustomContainer(
+                        textTitle: '5ч 45м', textSub: 'сон', horizontal: 45),
                   ],
                 ),
-                const SizedBox(height: 15,),
-                Text(
-                  'Kатегории здоровья',
-                  style: TextStyle(
-                      color: Colors.grey.shade600,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 16),
+                const SizedBox(
+                  height: 15,
                 ),
-                const SizedBox(height: 10,),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(11),
-                    color: Colors.white70,
-                    border: Border.all(
-                      width: 0.5,
-                      color: Colors.grey.shade500,
-                    ),
+                // Text(
+                //   'Kатегории здоровья',
+                //   style: TextStyle(
+                //       color: Colors.grey.shade600,
+                //       fontWeight: FontWeight.w500,
+                //       fontSize: 16),
+                // ),
+                // const SizedBox(height: 10,),
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  const SizedBox(height: 5),
+                  Text(
+                    "Все о здоровье",
+                    style: TextStyle(
+                        color: Colors.grey.shade600,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16),
                   ),
-                  child: ListView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemCount: items.length,
-                    itemBuilder: (BuildContext ctx, index) {
-                      return InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              CupertinoPageRoute(
-                                  builder: (_) =>
-                                      const RecommendationsScreen()));
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(vertical: 6),
-                          decoration: BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(
-                                color: Colors.grey.shade400,
-                                width: 1.0,
-                              ),
-                            ),
-                          ),
-                          child: ListTile(
-                            title: Text(items[index]),
-                            leading: Icon(
-                              Icons.spa_outlined,
-                              color: Colors.grey.shade400,
-                            ),
-                            trailing: Icon(
-                              Icons.chevron_right,
-                              color: Colors.grey.shade400,
-                            ),
-                          ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  BlocBuilder<ArticleBloc, ArticleState>(
+                    builder: (context, state) {
+                      if (state.isLoading) {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }
+                      return GridView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                          maxCrossAxisExtent: 180,
+                          mainAxisSpacing: 10,
+                          childAspectRatio:
+                              (MediaQuery.of(context).size.width * .2) / 80,
+                          crossAxisSpacing: 15,
                         ),
+                        itemCount: state.list.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return ArticleCard(results: state.list[index]);
+                        },
                       );
                     },
-                  ),
-                ),
-                const SizedBox(height: 20,)
+                  )
+                ]),
+                const SizedBox(
+                  height: 20,
+                )
               ],
             ),
           ),

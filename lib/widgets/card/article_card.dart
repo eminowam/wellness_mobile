@@ -19,63 +19,66 @@ class ArticleCard extends StatefulWidget {
 class _ArticleCardState extends State<ArticleCard> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ArticleBloc, ArticleState>(
-      builder: (context, state) {
-        return InkWell(
-          onTap: () => Navigator.push(
+    return Material(
+      elevation: 10,
+      borderRadius: BorderRadius.circular(13),
+      child: BlocBuilder<ArticleBloc, ArticleState>(
+        builder: (context, state) {
+          return InkWell(
+            onTap: () => Navigator.push(
               context,
               CupertinoPageRoute(
-                  builder: (_) => ArticleDetailsScreen(
-                        results: widget.results,
-                      ))),
-          child: Container(
-            margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-            height: 100,
-            width: 100,
-            child: Stack(
-              children: [
-                Container(
-                  width: 190,
-                  height: 190,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(18),
-                    child: Image.network(
-                      widget.results.image,
-                      fit: BoxFit.cover,
-                      loadingBuilder: (context, child, loadingProgress) {
-                        if (loadingProgress == null) return child;
-                        return Center(
-                          child: CircularProgressIndicator(
-                            value: loadingProgress.expectedTotalBytes != null
-                                ? loadingProgress.cumulativeBytesLoaded /
-                                    loadingProgress.expectedTotalBytes!
-                                : null,
-                          ),
-                        );
-                      },
-                      errorBuilder: (context, error, stackTrace) {
-                        return Icon(Icons.error);
-                      },
+                builder: (_) => ArticleDetailsScreen(
+                  results: widget.results,
+                ),
+              ),
+            ),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 130,
+                    width: double.infinity,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(13),
+                      child: Image.network(
+                        widget.results.image,
+                        fit: BoxFit.cover,
+                        loadingBuilder: (context, child, loadingProgress) {
+                          if (loadingProgress == null) return child;
+                          return Center(
+                            child: CircularProgressIndicator(
+                              value: loadingProgress.expectedTotalBytes != null
+                                  ? loadingProgress.cumulativeBytesLoaded /
+                                  loadingProgress.expectedTotalBytes!
+                                  : null,
+                            ),
+                          );
+                        },
+                        errorBuilder: (context, error, stackTrace) {
+                          return const  Icon(Icons.error);
+                        },
+                      ),
                     ),
                   ),
-                ),
-                Align(
-                    alignment: Alignment.bottomLeft,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
                     child: Text(
                       widget.results.title,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
                         fontWeight: FontWeight.w600,
-                        fontSize: 18,
+                        fontSize: 12,
                       ),
-                    ))
-              ],
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }
