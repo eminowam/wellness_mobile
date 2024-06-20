@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wellness_mobile/widgets/app_scaffold/app_scaffold.dart';
-import 'package:wellness_mobile/widgets/card/article_card.dart';
 import 'package:wellness_mobile/widgets/card/menu_card.dart';
 
-import '../../bloc/article_bloc/article_bloc.dart';
+import '../../bloc/food_bloc/food_bloc.dart';
 
 class ArticleScreen extends StatefulWidget {
   const ArticleScreen({super.key});
@@ -18,23 +17,28 @@ class _ArticleScreenState extends State<ArticleScreen> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<ArticleBloc>(context)
-        .add((ArticleAllEvent()));
-    }
+    BlocProvider.of<FoodBloc>(context)
+        .add((GetAllFoods()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      title: 'Блядо',
+      title: 'Еда',
       child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-          child: ListView.builder(
-              shrinkWrap: true,
-              itemCount: 5,
-              physics: const NeverScrollableScrollPhysics(),
-              itemBuilder: (BuildContext context, index) {
-                return MenuCard();
-              }),
+          child: BlocBuilder<FoodBloc, FoodState>(
+            builder: (context, state) {
+              return ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: state.list.length,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (BuildContext context, index) {
+                    return MenuCard(results: state.list[index],);
+                  });
+            },
+          ),
         ),
       ),
     );
