@@ -2,18 +2,16 @@ class FoodModel {
   late final int id;
   late final String name;
   late final String description;
-  late final String price;
   late final String image;
   late final String duration;
-  late final int fat;
-  late final int carbs;
-  late final int protein;
-  late final int calories;
+  late final double fat;
+  late final double carbs;
+  late final double protein;
+  late final double calories;
 
   FoodModel.fromJson(Map<String, dynamic> json)
       : id = json['id'],
         name = json["name"],
-        price = json["price"],
         image = json["image"],
         fat = json["fat"],
         carbs = json["carbs"],
@@ -25,7 +23,6 @@ class FoodModel {
   Map<String, dynamic> toJson() => {
     "id": id,
     "title": name,
-    "price": price,
     "image": image,
     "fat": fat,
     "carbs": carbs,

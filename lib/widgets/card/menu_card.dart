@@ -1,12 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:wellness_mobile/data/models/food/food_model.dart';
 import 'package:wellness_mobile/pages/articles/menu_details.dart';
 
 import '../../configs/color.dart';
 
-class MenuCard extends StatelessWidget {
-  const MenuCard({super.key});
+class MenuCard extends StatefulWidget {
+  const MenuCard({super.key, required this.results});
+  final FoodModel results;
 
+  @override
+  State<MenuCard> createState() => _MenuCardState();
+}
+
+class _MenuCardState extends State<MenuCard> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -18,7 +25,7 @@ class MenuCard extends StatelessWidget {
         child: InkWell(
           onTap: () {
             Navigator.push(
-                context, CupertinoPageRoute(builder: (_) => const MenuDetails()));
+                context, CupertinoPageRoute(builder: (_) =>  MenuDetails(results: widget.results,)));
           },
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
@@ -35,30 +42,51 @@ class MenuCard extends StatelessWidget {
                   width: 90,
                   height: 90,
                   child: ClipRRect(
-                      borderRadius: BorderRadius.circular(18),
-                      child: Image.asset('assets/mental/yoga.webp')),
+                    borderRadius: BorderRadius.circular(18),
+                    child: Image.network(
+                      widget.results.image,
+                      fit: BoxFit.cover,
+                      loadingBuilder: (context, child, loadingProgress) {
+                        if (loadingProgress == null) return child;
+                        return Center(
+                          child: CircularProgressIndicator(
+                            value: loadingProgress.expectedTotalBytes !=
+                                null
+                                ? loadingProgress.cumulativeBytesLoaded /
+                                loadingProgress.expectedTotalBytes!
+                                : null,
+                          ),
+                        );
+                      },
+                      errorBuilder: (context, error, stackTrace) {
+                        return const Icon(Icons.error);
+                      },
+                    ),
+                  ),
                 ),
-                const SizedBox(width: 7),
-                const Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      // widget.results.title,
-                      "Vegan Mushroom Bean Burger",
-                      style:
-                          TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      // widget.results.title,
-                      "25 min",
-                      style:
-                          TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
-                    ),
-                  ],
-                ),
+
+                const SizedBox(width: 10),
+                 Flexible(
+                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        widget.results.name,
+                        style:
+                        const  TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
+                        maxLines: 2,
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        widget.results.duration,
+                        style:
+                        const TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
+                      ),
+                    ],
+                                   ),
+                 ),
               ],
             ),
           ),
