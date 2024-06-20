@@ -48,10 +48,10 @@ class _YogaDetailsState extends State<YogaDetails> {
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               ClipRRect(
-                borderRadius: BorderRadius.circular(18),
+                borderRadius: BorderRadius.circular(10),
                 child: Image.network(
                   widget.results.image,
-                  fit: BoxFit.cover,
+                  fit: BoxFit.fill,
                   loadingBuilder: (context, child, loadingProgress) {
                     if (loadingProgress == null) return child;
                     return Center(

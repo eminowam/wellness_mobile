@@ -64,10 +64,7 @@ class _ArticleDetailsScreenState extends State<ArticleDetailsScreen> {
               const SizedBox(
                 height: 10,
               ),
-              Container(
-                width: 190,
-                height: 190,
-                child: ClipRRect(
+                 ClipRRect(
                   borderRadius: BorderRadius.circular(18),
                   child: Image.network(
                     widget.results.image,
@@ -88,7 +85,6 @@ class _ArticleDetailsScreenState extends State<ArticleDetailsScreen> {
                     },
                   ),
                 ),
-              ),
               const SizedBox(height: 7),
               Text(
                 widget.results.description,

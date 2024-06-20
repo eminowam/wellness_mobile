@@ -6,7 +6,6 @@ import '../../bloc/article_bloc/article_bloc.dart';
 import '../../widgets/app_scaffold/app_scaffold.dart';
 import '../../widgets/card/article_card.dart';
 import '../../widgets/card/swiper.dart';
-import '../../widgets/utils/custom_search.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -37,20 +36,33 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(
                   height: 20,
                 ),
-                const CustomSearchField(),
+                // const CustomSearchField(),
+                TextFormField(
+                  decoration: InputDecoration(
+                    focusColor: const Color(0xff797979),
+                    contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    border: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        width: 0.7,
+                      ),
+                      borderRadius: BorderRadius.circular(17),
+                    ),
+                    hintText: "Найти ",
+                    hintStyle: const TextStyle(fontSize: 14),
+                    prefixIcon: const Icon(Icons.search, color: Color(0xff797979)),
+                    prefixIconColor: Colors.black,
+                    suffixIcon: Icon(Icons.search),
+                  ),
+                  onChanged: (value) {
+                    setState(() {
+
+                    });
+                    },
+                ),
                 const SizedBox(
                   height: 15,
                 ),
-                const SizedBox(height: 10),
-                // const Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                //   children: [
-                //     CustomContainer(
-                //         textTitle: '2234', textSub: 'шагов', horizontal: 55),
-                //     CustomContainer(
-                //         textTitle: '5ч 45м', textSub: 'сон', horizontal: 45),
-                //   ],
-                // ),
                 const SizedBox(
                   height: 15,
                 ),
