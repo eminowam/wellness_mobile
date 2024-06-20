@@ -5,8 +5,8 @@ import '../../widgets/app_scaffold/app_scaffold.dart';
 
 class MenuDetails extends StatefulWidget {
   const MenuDetails({super.key, required this.results});
-  final FoodModel results;
 
+  final FoodModel results;
 
   @override
   State<MenuDetails> createState() => _MenuDetailsState();
@@ -22,24 +22,35 @@ class _MenuDetailsState extends State<MenuDetails> {
           Navigator.pop(context);
         },
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(
-                  height: 10,
-                ),
                 Text(
                   widget.results.name,
-                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                  style: const TextStyle(
+                      fontSize: 20, fontWeight: FontWeight.w500,),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                Text(
-                  widget.results.duration,
-                  style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
+                Row(
+                  children: [
+                    const Icon(
+                      Icons.schedule,
+                      size: 20,
+                      color: Colors.green,
+                    ),
+                    const SizedBox(width: 7),
+                    Text(
+                      "${widget.results.duration} минут",
+                      style: const TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black54),
+                    ),
+                  ],
                 ),
                 const SizedBox(
                   height: 20,
@@ -55,7 +66,7 @@ class _MenuDetailsState extends State<MenuDetails> {
                         child: CircularProgressIndicator(
                           value: loadingProgress.expectedTotalBytes != null
                               ? loadingProgress.cumulativeBytesLoaded /
-                              loadingProgress.expectedTotalBytes!
+                                  loadingProgress.expectedTotalBytes!
                               : null,
                         ),
                       );
@@ -91,11 +102,11 @@ class _MenuDetailsState extends State<MenuDetails> {
                         ],
                       ),
                     ),
-                   const SizedBox(
+                    const SizedBox(
                       height: 60,
                       child: VerticalDivider(
                         thickness: 0.5,
-                        color: Colors.black,
+                        color: Colors.grey,
                         indent: 10,
                         endIndent: 10,
                       ),
@@ -127,7 +138,7 @@ class _MenuDetailsState extends State<MenuDetails> {
                       height: 60,
                       child: VerticalDivider(
                         thickness: 0.5,
-                        color: Colors.black,
+                        color: Colors.grey,
                         indent: 10,
                         endIndent: 10,
                       ),
@@ -137,12 +148,20 @@ class _MenuDetailsState extends State<MenuDetails> {
                         children: [
                           Text(
                             widget.results.fat.toString(),
-                            style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500,color: Colors.green),
+                            style: const TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.green),
                           ),
-                          const  SizedBox(height: 5,),
+                          const SizedBox(
+                            height: 5,
+                          ),
                           const Text(
                             "Жиры",
-                            style:  TextStyle(fontSize: 15, fontWeight: FontWeight.w500,color: Colors.green),
+                            style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.green),
                           ),
                         ],
                       ),
@@ -151,7 +170,7 @@ class _MenuDetailsState extends State<MenuDetails> {
                       height: 60,
                       child: VerticalDivider(
                         thickness: 0.5,
-                        color: Colors.black,
+                        color: Colors.grey,
                         indent: 10,
                         endIndent: 10,
                       ),
@@ -161,12 +180,20 @@ class _MenuDetailsState extends State<MenuDetails> {
                         children: [
                           Text(
                             widget.results.carbs.toString(),
-                            style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500,color: Colors.green),
+                            style: const TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.green),
                           ),
-                          const  SizedBox(height: 5,),
+                          const SizedBox(
+                            height: 5,
+                          ),
                           const Text(
                             "Углеводы",
-                            style:  TextStyle(fontSize: 15, fontWeight: FontWeight.w500,color: Colors.green),
+                            style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.green),
                           ),
                         ],
                       ),
@@ -174,11 +201,23 @@ class _MenuDetailsState extends State<MenuDetails> {
                   ],
                 ),
                 const SizedBox(height: 25),
-                 Text(
+                Text(
                   widget.results.description,
-                  style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
+                  style: const TextStyle(
+                      fontSize: 17, fontWeight: FontWeight.w500),
                 ),
-               const  SizedBox(height: 10,),
+                const SizedBox(
+                  height: 10,
+                ),
+                const Center(
+                  child: Text(
+                    'Приятного аппетита!',
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.green),
+                  ),
+                )
               ],
             ),
           ),

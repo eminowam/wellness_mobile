@@ -79,10 +79,22 @@ class _MenuCardState extends State<MenuCard> {
                       const SizedBox(
                         height: 10,
                       ),
-                      Text(
-                        widget.results.duration,
-                        style:
-                        const TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.schedule,
+                            size: 20,
+                            color: Colors.green,
+                          ),
+                          const SizedBox(width: 7),
+                          Text(
+                            "${widget.results.duration} минут",
+                            style: const TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.black54),
+                          ),
+                        ],
                       ),
                     ],
                                    ),
