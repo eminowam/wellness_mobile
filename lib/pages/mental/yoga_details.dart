@@ -42,15 +42,12 @@ class _YogaDetailsState extends State<YogaDetails> {
         onPressed2: () {
           Navigator.pop(context);
         },
-        child: SingleChildScrollView(
-          child: Column(children: [
-            const SizedBox(
-              height: 10,
-            ),
-            Container(
-              width: 300,
-              height: 190,
-              child: ClipRRect(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+          child: SingleChildScrollView(
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              ClipRRect(
                 borderRadius: BorderRadius.circular(18),
                 child: Image.network(
                   widget.results.image,
@@ -71,17 +68,13 @@ class _YogaDetailsState extends State<YogaDetails> {
                   },
                 ),
               ),
-            ),
-            Container(
-                decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(30),
-                        topRight: Radius.circular(30))),
-                alignment: Alignment.topLeft,
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                      top: 23, right: 23, left: 23, bottom: 43),
+              Container(
+                  decoration: const BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(30),
+                          topRight: Radius.circular(30))),
+                  alignment: Alignment.topLeft,
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -120,9 +113,9 @@ class _YogaDetailsState extends State<YogaDetails> {
                                 // player.play(Source(widget.results.audio));
                               },
                             )),
-                      ]),
-                ))
-          ]),
+                      ]))
+            ]),
+          ),
         ));
   }
 }

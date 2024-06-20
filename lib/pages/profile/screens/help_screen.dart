@@ -32,15 +32,12 @@ class _HelpScreenState extends State<HelpScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
-                height: 30,
-              ),
               const Text(
                 'Оставьте жалобу или предложение',
                 style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
               ),
               const SizedBox(
-                height: 25,
+                height: 15,
               ),
               const Text('Имя', style: AppStyle.editProfileText),
               const SizedBox(
