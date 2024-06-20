@@ -5,7 +5,8 @@ class CustomSearchField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return
+      TextField(
       decoration: InputDecoration(
         focusColor: const Color(0xff797979),
         contentPadding:
