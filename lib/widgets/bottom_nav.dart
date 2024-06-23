@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wellness_mobile/bloc/comment_bloc/comment_bloc.dart';
 import 'package:wellness_mobile/configs/color.dart';
 import 'package:wellness_mobile/pages/main_screen/main_screen.dart';
 import 'package:wellness_mobile/pages/mental/mental_health_screen.dart';
 import 'package:wellness_mobile/pages/profile/profile_screen.dart';
 
+import '../data/models/comment/comment.dart';
 import '../pages/articles/menu_screen.dart';
 
 class BottomNav extends StatefulWidget {
@@ -12,18 +15,21 @@ class BottomNav extends StatefulWidget {
   @override
   State<BottomNav> createState() => _BottomNavState();
 }
-
-List<Widget> screens = [
-  const HomePage(),
-  const MentalHealthPage(),
-  const ArticleScreen(),
-  const ProfilePage(),
-];
 int currentIndex = 0;
+
 
 class _BottomNavState extends State<BottomNav> {
   @override
   Widget build(BuildContext context) {
+    final comment = context.watch<CommentBloc>().state.comment;
+
+
+    List<Widget> screens = [
+      const HomePage(),
+      const MentalHealthPage(),
+      const ArticleScreen(),
+       ProfilePage(comment: comment),
+    ];
     return Scaffold(
       body: screens[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
