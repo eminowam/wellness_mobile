@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wellness_mobile/bloc/article_bloc/article_bloc.dart';
+import 'package:wellness_mobile/bloc/comment_bloc/comment_bloc.dart';
 import 'package:wellness_mobile/bloc/food_bloc/food_bloc.dart';
 import 'package:wellness_mobile/widgets/bottom_nav.dart';
 
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(create: (_) => ArticleBloc(preferences)),
           BlocProvider(create: (_) => MentalBloc(preferences)),
           BlocProvider(create: (_) => FoodBloc(preferences)),
+          BlocProvider(create: (_) => CommentBloc(preferences)),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,

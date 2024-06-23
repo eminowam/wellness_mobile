@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wellness_mobile/configs/style.dart';
+import 'package:wellness_mobile/data/models/comment/comment.dart';
 import 'package:wellness_mobile/pages/auth/sign_in.dart';
 import 'package:wellness_mobile/pages/profile/screens/data_screen.dart';
 import 'package:wellness_mobile/pages/profile/screens/help_screen.dart';
@@ -12,7 +13,9 @@ import '../../widgets/app_scaffold/app_scaffold.dart';
 import '../../widgets/utils/custom_button.dart';
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+  const ProfilePage({super.key, required this.comment});
+  final CommentModel? comment;
+
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
@@ -68,7 +71,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   iconMain: Icons.help_outline_outlined,
                   onPressed: () {
                     Navigator.push(context,
-                        CupertinoPageRoute(builder: (_) => const HelpScreen()));
+                        CupertinoPageRoute(builder: (_) =>  HelpScreen(comment: widget.comment!)));
                   }),
               CustomSettings(
                   title: 'Сохраненные',

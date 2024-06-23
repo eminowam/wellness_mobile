@@ -79,8 +79,7 @@ class _ArticleDetailsScreenState extends State<ArticleDetailsScreen> {
                               : null,
                         ),
                       );
-                    },
-                    errorBuilder: (context, error, stackTrace) {
+                    }, errorBuilder: (context, error, stackTrace) {
                       return Icon(Icons.error);
                     },
                   ),
