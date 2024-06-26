@@ -21,15 +21,18 @@ int currentIndex = 0;
 class _BottomNavState extends State<BottomNav> {
   @override
   Widget build(BuildContext context) {
-    final comment = context.watch<CommentBloc>().state.comment;
-
+    CommentModel? commentModel = context.watch<CommentBloc>().state.comment;
 
     List<Widget> screens = [
       const HomePage(),
       const MentalHealthPage(),
       const ArticleScreen(),
-       ProfilePage(comment: comment),
+      if (commentModel != null)
+        ProfilePage(commentModel: commentModel),
+      if (commentModel == null)
+        const SizedBox(), // or any widget to show while loading
     ];
+
     return Scaffold(
       body: screens[currentIndex],
       bottomNavigationBar: BottomNavigationBar(

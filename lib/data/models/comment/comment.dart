@@ -1,8 +1,21 @@
 class CommentModel {
-  late final String name;
-  late final String email;
-  late final String description;
-  late final String phone;
+    String name;
+    String email;
+    String description;
+    String phone;
+
+  CommentModel.copyWith(CommentModel comment)
+      : name = comment.name,
+        email = comment.email,
+        description = comment.description,
+        phone = comment.phone;
+
+  CommentModel({
+    this.phone = '',
+    this.name = '',
+    this.email = "",
+    this.description = "",
+  });
 
   CommentModel.fromJson(Map<String, dynamic> json)
       : name = json['name'],
@@ -10,6 +23,10 @@ class CommentModel {
         phone = json["phone"],
         description = json["description"];
 
-  Map<String, dynamic> toJson() =>
-      {"name": name, "email": email, "phone": phone, "description": description};
+  Map<String, dynamic> toJson() => {
+        "name": name,
+        "email": email,
+        "phone": phone,
+        "description": description
+      };
 }
