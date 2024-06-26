@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 
 const String baseApi = "https://wellnessapplication.pythonanywhere.com/api";
 const String imageApi = "";

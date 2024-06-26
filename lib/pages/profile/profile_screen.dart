@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wellness_mobile/configs/style.dart';
 import 'package:wellness_mobile/data/models/comment/comment.dart';
 import 'package:wellness_mobile/pages/auth/sign_in.dart';
@@ -8,13 +9,16 @@ import 'package:wellness_mobile/pages/profile/screens/help_screen.dart';
 import 'package:wellness_mobile/pages/profile/screens/saved_screen.dart';
 import 'package:wellness_mobile/pages/profile/screens/settings_screen.dart';
 
+import '../../bloc/comment_bloc/comment_bloc.dart';
 import '../../configs/color.dart';
 import '../../widgets/app_scaffold/app_scaffold.dart';
 import '../../widgets/utils/custom_button.dart';
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key, required this.comment});
-  final CommentModel? comment;
+  const ProfilePage({super.key, required this.commentModel,});
+  final CommentModel commentModel;
+
+
 
 
   @override
@@ -22,8 +26,20 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+
+
+  late final CommentModel commentModel;
+  @override
+  void initState() {
+    super.initState();
+    commentModel = CommentModel.copyWith(widget.commentModel);
+  }
+
   @override
   Widget build(BuildContext context) {
+
+    // User currentUser =
+    // bloc.otherUser != null && !isCurrentUser ? bloc.otherUser! : bloc.user;
     return AppScaffold(
       title: 'Профиль',
       child: SingleChildScrollView(
@@ -71,7 +87,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   iconMain: Icons.help_outline_outlined,
                   onPressed: () {
                     Navigator.push(context,
-                        CupertinoPageRoute(builder: (_) =>  HelpScreen(comment: widget.comment!)));
+                        CupertinoPageRoute(builder: (_) =>  HelpScreen(commentModel: commentModel)));
                   }),
               CustomSettings(
                   title: 'Сохраненные',

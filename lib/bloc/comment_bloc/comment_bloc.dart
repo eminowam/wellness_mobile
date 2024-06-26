@@ -18,7 +18,7 @@ class CommentBloc extends Bloc<CommentEvent, CommentState> {
   final CommentRepository commentRepository = CommentRepository();
   final SharedPreferences preferences;
 
-  CommentBloc(this.preferences) : super(const CommentState()) {
+  CommentBloc(this.preferences) : super( CommentState(comment: CommentModel())) {
     on<CommentCreateEvent>(onCommentCreate);
   }
 
